@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrimonial Services - APCA</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+   <style>
+    /* Matrimonial Page Specific Styles */
+.matrimonial-hero {
+    background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85)), url('https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 120px 0 80px;
+    text-align: center;
+    margin-top: 76px;
+}
+
+.matrimonial-form {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid var(--secondary);
+}
+
+.benefit-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    text-align: center;
+    border-bottom: 3px solid var(--secondary);
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+.form-label {
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.form-control, .form-select {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+}
+
+.btn-primary {
+    background: var(--secondary);
+    color: var(--primary);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #e6b400;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn-outline-secondary {
+    border: 2px solid #6c757d;
+    color: #6c757d;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+    background: #6c757d;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Success Stories */
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .matrimonial-hero {
+        padding: 100px 0 60px;
+    }
+    
+    .matrimonial-form {
+        padding: 25px 20px;
+    }
+    
+    .benefit-card {
+        padding: 20px 15px;
+    }
+}
+/* Add these animation styles */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animation classes */
+.animate-fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-fade-in-left {
+    opacity: 0;
+    animation: fadeInLeft 0.8s ease forwards;
+}
+
+.animate-fade-in-right {
+    opacity: 0;
+    animation: fadeInRight 0.8s ease forwards;
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+.animate-bounce-in {
+    opacity: 0;
+    animation: bounceIn 1s ease forwards;
+}
+
+/* Animation delays */
+.delay-100 {
+    animation-delay: 0.1s;
+}
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-300 {
+    animation-delay: 0.3s;
+}
+
+.delay-400 {
+    animation-delay: 0.4s;
+}
+
+.delay-500 {
+    animation-delay: 0.5s;
+}
+
+/* Hero text animations */
+.hero-title {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.hero-subtitle {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.3s;
+}
+
+.hero-cta {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.6s;
+}
+
+/* Hover animations */
+.benefit-card:hover .benefit-icon,
+.process-card:hover .process-icon,
+.story-card:hover .story-icon {
+    animation: pulse 1s;
+}
+
+/* Form field focus animations */
+.form-control:focus,
+.form-select:focus {
+    animation: pulse 0.5s;
+}
+
+/* Button hover animations */
+.btn-primary:hover,
+.btn-outline-light:hover {
+    animation: pulse 0.5s;
+}
+   </style>
+   <script>
+    // Matrimonial Page JavaScript
+$(document).ready(function() {
+    // Form submission
+    $('#matrimonialForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        // Basic validation
+        let isValid = true;
+        $('#matrimonialForm [required]').each(function() {
+            if ($(this).val() === '') {
+                isValid = false;
+                $(this).addClass('is-invalid');
+            } else {
+                $(this).removeClass('is-invalid');
+            }
+        });
+        
+        if (isValid) {
+            // Show success message
+            alert('Thank you for submitting your matrimonial profile! We will review your information and contact you soon.');
+            
+            // In a real implementation, you would send the form data to a server here
+            // For now, we'll just reset the form
+            this.reset();
+        } else {
+            // Scroll to first error
+            $('html, body').animate({
+                scrollTop: $('.is-invalid').first().offset().top - 100
+            }, 500);
+        }
+    });
+    
+    // Remove validation styles when user starts typing
+    $('#matrimonialForm input, #matrimonialForm select, #matrimonialForm textarea').on('input', function() {
+        $(this).removeClass('is-invalid');
+    });
+    
+    // Date of birth validation
+    $('#dob').on('blur', function() {
+        const dobPattern = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$/;
+        if ($(this).val() !== '' && !dobPattern.test($(this).val())) {
+            $(this).addClass('is-invalid');
+            alert('Please enter date of birth in DD-MM-YYYY format');
+        }
+    });
+    
+    // Time of birth validation
+    $('#time').on('blur', function() {
+        const timePattern = /^(0?[1-9]|1[0-2]):[0-5][0-9] (AM|PM)$/i;
+        if ($(this).val() !== '' && !timePattern.test($(this).val())) {
+            $(this).addClass('is-invalid');
+            alert('Please enter time in HH:MM AM/PM format');
+        }
+    });
+});// Scroll animation function
+function animateOnScroll() {
+    $('.animate-on-scroll').each(function() {
+        var elementTop = $(this).offset().top;
+        var elementHeight = $(this).outerHeight();
+        var windowHeight = $(window).height();
+        var scrollTop = $(window).scrollTop();
+        
+        // Check if element is in viewport
+        if (elementTop < (scrollTop + windowHeight - 100) && 
+            (elementTop + elementHeight) > scrollTop) {
+            var animationType = $(this).data('animation') || 'fadeInUp';
+            var delay = $(this).data('delay') || 0;
+            
+            // Apply animation with delay
+            setTimeout(() => {
+                $(this).addClass('animate-' + animationType);
+            }, delay);
+        }
+    });
+}
+
+// Initialize animations on page load
+$(document).ready(function() {
+    // ... existing code ...
+    
+    // Initialize scroll animations
+    $(window).on('scroll', animateOnScroll);
+    // Trigger once on load
+    animateOnScroll();
+    
+    // Add animation classes to elements
+    $('.benefit-card').addClass('animate-on-scroll').attr('data-animation', 'fadeInUp');
+    $('.process-card').addClass('animate-on-scroll').attr('data-animation', 'fadeInUp');
+    $('.story-card').addClass('animate-on-scroll').attr('data-animation', 'fadeInUp');
+    
+    // Add staggered delays
+    $('.benefit-card').each(function(index) {
+        $(this).attr('data-delay', index * 100);
+    });
+    
+    $('.process-card').each(function(index) {
+        $(this).attr('data-delay', index * 100);
+    });
+    
+    $('.story-card').each(function(index) {
+        $(this).attr('data-delay', index * 100);
+    });
+    
+    // Animate form elements
+    $('#matrimonialForm .form-control, #matrimonialForm .form-select').addClass('animate-on-scroll')
+        .attr('data-animation', 'fadeInUp');
+    
+    // Add staggered delays to form elements
+    $('#matrimonialForm .form-control, #matrimonialForm .form-select').each(function(index) {
+        $(this).attr('data-delay', index * 50);
+    });
+    
+    // ... rest of existing code ...
+});
+   </script>
+</head>
+<body>
+    <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            AGARWAL PROFESSIONALS
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="about.html">
+                        ABOUT US
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="members-lounge.html" class="active">MEMBER'S LOUNGE</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        SERVICES
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><a class="dropdown-item" href="job.html">Job opportunities</a></li>
+                        <li><a class="dropdown-item" href="matrimonial.html">Matrimonial services</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="links.html">LINKS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="registration.html">REGISTRATION</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#footerlinking">CONTACT US</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="matrimonial-hero">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4" style="color: white;">Matrimonial Services</h1>
+            <p class="lead">Connecting Agrawal community members for lifelong partnerships</p>
+        </div>
+    </section>
+    
+
+    <!-- Benefits Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our Matrimonial Service?</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Verified Profiles</h3>
+                        <p>All profiles are thoroughly verified to ensure authenticity and build trust within our community.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community Focused</h3>
+                        <p>Connect with matches who share your cultural values, traditions, and community background.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Privacy Protected</h3>
+                        <p>Your personal information remains confidential and is only shared with your consent.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Matrimonial Form Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Create Your Matrimonial Profile</h2>
+            <p class="text-center mb-5">Fill out the form below to create your profile and begin your journey to finding a compatible partner</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="matrimonial-form">
+                        <form id="matrimonialForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Name *</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="dob" class="form-label">Date Of Birth (DD-MM-YYYY) *</label>
+                                    <input type="text" class="form-control" id="dob" placeholder="DD-MM-YYYY" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="time" class="form-label">Time of Birth</label>
+                                    <input type="text" class="form-control" id="time" placeholder="HH:MM AM/PM">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="place" class="form-label">Place Of Birth *</label>
+                                    <input type="text" class="form-control" id="place" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="father" class="form-label">Father's Name *</label>
+                                    <input type="text" class="form-control" id="father" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="education" class="form-label">Education *</label>
+                                    <input type="text" class="form-control" id="education" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="profession" class="form-label">Profession *</label>
+                                    <input type="text" class="form-control" id="profession" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="gotra" class="form-label">Gotra *</label>
+                                    <input type="text" class="form-control" id="gotra" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="height" class="form-label">Height</label>
+                                    <input type="text" class="form-control" id="height" placeholder="Feet-Inches or Centimeters">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="maritalStatus" class="form-label">Marital Status *</label>
+                                    <select class="form-select" id="maritalStatus" required>
+                                        <option value="">Select</option>
+                                        <option value="Never Married">Never Married</option>
+                                        <option value="Divorced">Divorced</option>
+                                        <option value="Widowed">Widowed</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="about" class="form-label">About Yourself</label>
+                                <textarea class="form-control" id="about" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="partnerExpectations" class="form-label">Partner Expectations</label>
+                                <textarea class="form-control" id="partnerExpectations" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-3">
+                                    <button type="submit" class="btn btn-primary w-100">Submit Profile</button>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <button type="reset" class="btn btn-outline-secondary w-100">Reset Form</button>
+                                </div>
+                            </div>
+                            
+                            <p class="text-muted mt-3">* Fields are mandatory. Your information will be kept confidential and used solely for matrimonial purposes.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Footer -->
+    <footer class="footer" id="footerlinking">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="footer-title">APCA</h3>
+                    <p>Agrawal Professionals Cultural Association</p>
+                    <p>An Initiative by Agrawal Professionals... since 1992</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 83, Goyal Palace, Sarkhej – Gandhinagar Highway, Bodakdev, Ahmedabad – 380 054, Gujarat, India</li>
+                        <li><i class="fas fa-envelope me-2"></i> apca2000@hotmail.com</li>
+                        <li><i class="fas fa-phone me-2"></i> +91 98765 43210</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+    <h4 class="footer-title">Quick Links</h4>
+    <ul class="footer-links">
+        <li><a href="about.html">About APCA</a></li>
+        <li><a href="#" data-bs-toggle="modal" data-bs-target="#feedbackModal">Feedback / FAQs</a></li>
+        <li><a href="members-lounge.html">Member's Lounge</a></li>
+        <li><a href="job.html">Job Opportunities</a></li>
+        <li><a href="matrimonial.html">Matrimonial Services</a></li>
+        <li><a href="links.html">Useful Links</a></li>
+    </ul>
+</div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Agrawal Professionals Cultural Association. All Rights Reserved.</p>
+                <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> for the Agrawal Community</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Custom Script -->
+    <script src="js/matrimonial.js"></script>
+</body>
+</html>

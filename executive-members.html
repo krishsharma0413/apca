@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Members - APCA</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Executive Members Page Specific Styles */
+.executive-hero {
+    background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85)), url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 140px 0 80px;
+    text-align: center;
+    margin-top: 76px;
+}
+
+.executive-container {
+    display: flex;
+    min-height: calc(100vh - 200px);
+    margin: 30px auto;
+    max-width: 1400px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.executive-sidebar {
+    width: 25%;
+    background: linear-gradient(to bottom, #1a365d, #2a4b8d);
+    color: white;
+    padding: 25px 15px;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.executive-content {
+    width: 75%;
+    padding: 30px 40px;
+    overflow-y: auto;
+    max-height: calc(100vh - 200px);
+}
+
+.sidebar-title {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--secondary);
+    font-size: 1.5rem;
+}
+
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-links li {
+    margin-bottom: 8px;
+}
+
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.sidebar-links a:hover, 
+.sidebar-links a.active {
+    background: rgba(255, 255, 255, 0.15);
+    padding-left: 20px;
+    transform: translateX(5px);
+}
+
+.sidebar-links a:hover:before,
+.sidebar-links a.active:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: var(--secondary);
+    border-radius: 0 4px 4px 0;
+}
+
+.committee-section {
+    display: none;
+}
+
+.committee-section.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.executive-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.executive-table th {
+    background: var(--primary);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--secondary);
+}
+
+.executive-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+}
+
+.executive-table tr:last-child td {
+    border-bottom: none;
+}
+
+.executive-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.executive-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.view-bio {
+    white-space: nowrap;
+}
+
+/* Modal Styles */
+.modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    background: var(--primary);
+    color: white;
+    border-radius: 15px 15px 0 0;
+    padding: 20px;
+    border-bottom: 3px solid var(--secondary);
+}
+
+.modal-title {
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.modal-body {
+    padding: 30px;
+    line-height: 1.8;
+}
+
+.modal-footer {
+    border-top: 1px solid #eee;
+    padding: 20px 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .executive-container {
+        flex-direction: column;
+        border-radius: 10px;
+    }
+    
+    .executive-sidebar,
+    .executive-content {
+        width: 100%;
+    }
+    
+    .executive-sidebar {
+        padding: 20px;
+    }
+    
+    .sidebar-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .sidebar-links li {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .executive-hero {
+        padding: 100px 0 60px;
+    }
+    
+    .executive-content {
+        padding: 20px;
+    }
+    
+    .executive-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .executive-table th,
+    .executive-table td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .sidebar-links {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar-title {
+        font-size: 1.3rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .executive-table {
+        font-size: 0.85rem;
+    }
+}
+    </style>
+    <script>
+        // Executive Members Page JavaScript
+$(document).ready(function() {
+    // Handle sidebar navigation
+    const sidebarLinks = $('.sidebar-links a');
+    const committeeSections = $('.committee-section');
+    
+    sidebarLinks.on('click', function(e) {
+        e.preventDefault();
+        
+        // Remove active class from all links and sections
+        sidebarLinks.removeClass('active');
+        committeeSections.removeClass('active');
+        
+        // Add active class to clicked link
+        $(this).addClass('active');
+        
+        // Show corresponding content section
+        const year = $(this).data('year');
+        $(`#${year}-content`).addClass('active');
+        
+        // Scroll to top of content
+        $('.executive-content').animate({
+            scrollTop: 0
+        }, 300);
+    });
+    
+    // Bio modal functionality
+    $('.view-bio').on('click', function() {
+        const bioContent = $(this).data('bio');
+        $('#bioContent').html('<p>' + bioContent + '</p>');
+    });
+    
+    // Initialize scroll animations
+    $(window).on('scroll', function() {
+        $('.animate-on-scroll').each(function() {
+            var elementTop = $(this).offset().top;
+            var elementHeight = $(this).outerHeight();
+            var windowHeight = $(window).height();
+            var scrollTop = $(window).scrollTop();
+            
+            // Check if element is in viewport
+            if (elementTop < (scrollTop + windowHeight - 100) && 
+                (elementTop + elementHeight) > scrollTop) {
+                var animationType = $(this).data('animation') || 'fadeInUp';
+                var delay = $(this).data('delay') || 0;
+                
+                // Apply animation with delay
+                setTimeout(() => {
+                    $(this).addClass('animate-' + animationType);
+                }, delay);
+            }
+        });
+    });
+    
+    // Trigger once on load
+    $(window).trigger('scroll');
+});
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            AGARWAL PROFESSIONALS
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="about.html">
+                        ABOUT US
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="members-lounge.html" class="active">MEMBER'S LOUNGE</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        SERVICES
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><a class="dropdown-item" href="job.html">Job opportunities</a></li>
+                        <li><a class="dropdown-item" href="matrimonial.html">Matrimonial services</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="links.html">LINKS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="registration.html">REGISTRATION</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#footerlinking">CONTACT US</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <!-- Hero Section -->
+    <section class="page-hero executive-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold text-white mb-4 hero-title">Executive Members</h1>
+                    <p class="lead text-white hero-subtitle">Meet the dedicated leaders of our organization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Members Layout -->
+    <div class="executive-container">
+        <!-- Sidebar Navigation -->
+        <div class="executive-sidebar">
+            <h2 class="sidebar-title">Executive Committees</h2>
+            <ul class="sidebar-links">
+                <li><a href="#2012-2014" class="active" data-year="2012-2014"><i class="fas fa-users me-2"></i> 2012 - 2014</a></li>
+                <li><a href="#2014-2016" data-year="2014-2016"><i class="fas fa-users me-2"></i> 2014 - 2016</a></li>
+            </ul>
+        </div>
+        
+        <!-- Content Area -->
+        <div class="executive-content">
+            <!-- 2012-2014 Committee -->
+            <div class="committee-section active" id="2012-2014-content">
+                <h2 class="section-title">Executive Committee 2012-2014</h2>
+                
+                <div class="table-responsive">
+                    <table class="table executive-table">
+                        <thead>
+                            <tr>
+                                <th>Position</th>
+                                <th>Name</th>
+                                <th>Qualification</th>
+                                <th>Contact</th>
+                                <th>Bio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- President -->
+                            <tr>
+                                <td><strong>President</strong></td>
+                                <td>P.K. Bansal (IPS)</td>
+                                <td>D.G of Police (Retd.)</td>
+                                <td>®26855522, 26856622<br>(M) 98259-45522</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="After passing M.A.[Sanskrit] and LL.B., Shri P K Bansal got selected to the Indian Police Service in 1963 through the All India competition conducted by the U.P.S.C. He has served in Gujarat as Superintendent of Police, Commissioner of Police, Head of State Intelligence and State CID Crime. He rose to become Director General of Police. He was awarded Police Medal by The President of India in 1995 for long and meritorious service in the Police Department. He retired in 1997 and is settled in Ahmedabad. He always helped the poor and common man in Police matters while in service and continues to do so even after retirement. It is his passion. He is highly unassuming, humble and social and ready to help anybody approaching him. As President of APCA for last 17 years, he has been instrumental in its tremendous development and effectiveness as an unique and active social organization of Agrawals - well known in the State as well as national level. He has been unanimously elected as the President of Gujarat Pradesh Agrawal Mahasabha to lead and advise direction to all Agrawal Samaj of Gujarat.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Vice President -->
+                            <tr>
+                                <td><strong>Vice President</strong></td>
+                                <td>Kamlesh N. Garg</td>
+                                <td>Engineer</td>
+                                <td>®27913630 (O)27683576<br>(M) 98255-07436</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Shri K N Garg is an illustrious engineer and an industrialist. He is providing his expertise in Oil and Gas sector as manufacturers of process equipment and EPC contracts for storages tanks, pipelines, production facilities etc. for last 40 years. He also deals in imported building systems from DOMAL and DORMA. His social nature and 'never to say die' approach towards societal needs makes him a 'always required' personality in many social and charitable organisations.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Secretary -->
+                            <tr>
+                                <td><strong>Secretary</strong></td>
+                                <td>R.J.K. Jain</td>
+                                <td>Head, HRD, ISRO (Retd.)</td>
+                                <td>®02717-234300<br>(M) 98240-73882</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Sh. RJK Jain joined ISRO in 1973 laced with an engineering degree & MS in OR. He is also an alumni of IIM, Ahmedabad. Project Management, Planning, Policy & Decision making on Technical & Managerial issues, counselling & HR have been his forte. He is a member of numerous professional bodies. Helping the needy & serving the society are his motto.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Joint Secretary -->
+                            <tr>
+                                <td><strong>Joint Secretary</strong></td>
+                                <td>N.K. Agarwal</td>
+                                <td>Chief Chemist (Retd.) ONGC</td>
+                                <td>®26856451<br>(M) 98255-99251</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Mr.N.K.Agarwal after completing his Masters degree in Chemistry and Diploma in Petroleum Technology,joined ONGC in 1967.He worked with ONGC's different Projects at Dehradun,Assam,Ahmedabad,Vadodara,Bombay Offshor,Godavari Offshore and Karaikal.His field of speciality was Oil Field Scale and Corrosion problems and EOR Techniques for Oil Recovery.He was awarded more than a dozen merit certificates including Chairman's award on his outstanding work.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Treasurer -->
+                            <tr>
+                                <td><strong>Treasurer</strong></td>
+                                <td>Dinesh Garg</td>
+                                <td>Practising CA</td>
+                                <td>®22685590 (O)25633890<br>(M) 98251-69135</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="By profession he is Chartered Accountant with more than 20 years' of practice in the relevant field and as proprietor of M/S D. K. Garg & Company. He is professionally qualified as B.com, LLB, FCA. He is also the President of Arawali Agrawal Samaj, Ahmedabad and the President Elect of Rotary Club Ahmedabad Airport for the year of 2013/14. He is attached with so many social organisation.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Executive Member 1 -->
+                            <tr>
+                                <td><strong>Executive Member</strong></td>
+                                <td>Arvind Agarwal I.A.S</td>
+                                <td>Govt. of Gujarat</td>
+                                <td>®26861722 (O)23259513<br>(M) 98254-19819</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Arvind Agarwal is an IAS officer of 1984 batch in the Gujarat cadre. A post-graduate in Commerce, Arvind has lived in the state for the last 28 years, serving in many important assignments in the Gujarat Government, such as Collector & District Magistrate of Bharuch, Industries Commissioner, VC & MD of GIDC etc. Arvind is currently posted as Director General of Sardar Patel Institute of Public Administration, Ahmedabad. Arvind is married to Mamta. The couple have two sons, Mehul and Pranay, who are settled in Boston and Seattle respectively in USA. Arvind's family hails from Basti in Eastern UP. While Arvind enjoys reading in his spare time, Mamta is interested in Sitar and is very active in the IAS Officers' Wives Association.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Executive Member 2 -->
+                            <tr>
+                                <td><strong>Executive Member</strong></td>
+                                <td>Manoj Agarwal I.P.S</td>
+                                <td>IG of Police</td>
+                                <td>®25621516 (O)23254417<br>(M) 9978406297</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Born in Uttar Pradesh, he passed his B.Tech and M.Tech from IIT Kanpur and then joined The Indian Police Service in 1991 after selection Through an all India Competitive examination held by the Union Public Service Commission. Allotted to the State of Gujarat, served as Superintendent of Police in many districts, DIG of Police in Border Range and Additional Commissioner of Police in Ahmedabad City. At present he is holding the important post of Inspector General of Police in the State Crime Records Bureau. He is deli snared as CIO of Home Department and looking after all the IT projects of Police. He was awarded Police Medal by The President of India in year 2008 for his long and meritorious services in The Police Department. During the service got Diploma in Cyber Security and Human Resourse Management. Represent Gujarat Police in All India tournaments of Lawn Tennis, Golf and Badminton and came runners up in Lawn Tennis and Golf.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Executive Member 3 -->
+                            <tr>
+                                <td><strong>Executive Member</strong></td>
+                                <td>Sunil M. Agrawal</td>
+                                <td>Advocate</td>
+                                <td>®27913250 (O)27913250<br>(M) 9824048050</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Practising as Advocate in the High Court of Gujarat, Sessions Court and District Courts since 1995. He mainly deals with Criminal cases and Civil cases. He is also a key member in APCA Legal Help Line and associated with different social activites. His hobbies are taking parts in Social Organization and Touring.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Executive Member 4 -->
+                            <tr>
+                                <td><strong>Executive Member</strong></td>
+                                <td>Dr. H K Bansal</td>
+                                <td>Addl.Ch.Med.Suptdt., Western Railway</td>
+                                <td>®22920674 (O)22167174<br>(M) 9724093512</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Dr.H.K.Bansal,M.B.B.S.,PGDMCH,MD[AM]. work as,Add.CMS/ADI W.R. He joined indian Railways as class I officer in 1983.He is life member of IMA,Theosiphical society of india,IPHA,APA,SMA,Maharaja agrasen seva sansthan, & many other.His life mission is helping the needy,spreading the knowledge,heath awareness,public relationship, promoting understanding & trust in interpersonal relationships, understanding laws of nature, & standing up for values.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Executive Member 5 -->
+                            <tr>
+                                <td><strong>Executive Member</strong></td>
+                                <td>Dr. Deepak Goyal</td>
+                                <td>Knee Joint Surgeon</td>
+                                <td>®23292207 (O)27570022<br>(M) 9825067334</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Dr Deepak Goyal, a Consultant Knee Joint Surgeon, plays active role in various national and international organizations. Board Member of 'International Cartilage Repair Society', Member of Cartilage Committee of 'European Society of Knee Surgery', Founder Member of 'Asian Cartilage Repair Society' are few of his contributions. Recipient of many Professional Awards from different Orthopedic Societies; he has delivered more than 50 Faculty Lectures and Research Papers at various national and international platforms.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Executive Member 6 -->
+                            <tr>
+                                <td><strong>Executive Member</strong></td>
+                                <td>CP Jain</td>
+                                <td>Practising CA</td>
+                                <td>®27494409<br>(M) 9824036127</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="A chartered accountant with more than 27 years' post qualification experience. Presently practicing as Senior Partner of M/S C.P.Jain & Company, Chartered Accountants. He is advising large number of corporates in the matter of Funding and Structuring across the country.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Executive Member 7 -->
+                            <tr>
+                                <td><strong>Executive Member</strong></td>
+                                <td>Praveen Garg</td>
+                                <td>Head - Commercial, Uninor</td>
+                                <td>®9173038888<br>(M) 9173111153</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Mr. Praveen Garg, Engineer by Profession, having vast experience of diversified sectors like Home Appliances, FMCG, Telecom, alsoplays active role in various social activities. Life Member of 'Indian Institute of Materials Management', Recipient of many Awards during his professional career. Always known for his 'WE CAN DO IT' principle.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Executive Member 8 -->
+                            <tr>
+                                <td><strong>Executive Member</strong></td>
+                                <td>Dr. Manish Agrawal</td>
+                                <td>Medilink Hospital</td>
+                                <td>®9825875854 (O)26762821<br>(M) 9825443397</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Dr Manish Agrawal is practising as diabetologist since 10 yrs & founder member of UDAI project and Director of Medilink Hospital.">View Bio</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 2014-2016 Committee -->
+            <div class="committee-section" id="2014-2016-content">
+                <h2 class="section-title">Executive Committee 2014-2016</h2>
+                
+                <div class="table-responsive">
+                    <table class="table executive-table">
+                        <thead>
+                            <tr>
+                                <th>Position</th>
+                                <th>Name</th>
+                                <th>Qualification</th>
+                                <th>Contact</th>
+                                <th>Bio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- President -->
+                            <tr>
+                                <td><strong>President</strong></td>
+                                <td>P.K. Bansal (IPS)</td>
+                                <td>D.G of Police (Retd.)</td>
+                                <td>®26855522, 26856622<br>(M) 98259-45522</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="After passing M.A.[Sanskrit] and LL.B., Shri P K Bansal got selected to the Indian Police Service in 1963 through the All India competition conducted by the U.P.S.C. He has served in Gujarat as Superintendent of Police, Commissioner of Police, Head of State Intelligence and State CID Crime. He rose to become Director General of Police. He was awarded Police Medal by The President of India in 1995 for long and meritorious service in the Police Department. He retired in 1997 and is settled in Ahmedabad. He always helped the poor and common man in Police matters while in service and continues to do so even after retirement. It is his passion. He is highly unassuming, humble and social and ready to help anybody approaching him. As President of APCA for last 17 years, he has been instrumental in its tremendous development and effectiveness as an unique and active social organization of Agrawals - well known in the State as well as national level. He has been unanimously elected as the President of Gujarat Pradesh Agrawal Mahasabha to lead and advise direction to all Agrawal Samaj of Gujarat.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Vice President -->
+                            <tr>
+                                <td><strong>Vice President</strong></td>
+                                <td>Kamlesh N. Garg</td>
+                                <td>Engineer</td>
+                                <td>®27913630 (O)27683576<br>(M) 98255-07436</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Shri K N Garg is an illustrious engineer and an industrialist. He is providing his expertise in Oil and Gas sector as manufacturers of process equipment and EPC contracts for storages tanks, pipelines, production facilities etc. for last 40 years. He also deals in imported building systems from DOMAL and DORMA. His social nature and 'never to say die' approach towards societal needs makes him a 'always required' personality in many social and charitable organisations.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Secretary -->
+                            <tr>
+                                <td><strong>Secretary</strong></td>
+                                <td>R.J.K. Jain</td>
+                                <td>Head, HRD, ISRO (Retd.)</td>
+                                <td>®02717-234300<br>(M) 98240-73882</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Sh. RJK Jain joined ISRO in 1973 laced with an engineering degree & MS in OR. He is also an alumni of IIM, Ahmedabad. Project Management, Planning, Policy & Decision making on Technical & Managerial issues, counselling & HR have been his forte. He is a member of numerous professional bodies. Helping the needy & serving the society are his motto.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Joint Secretary -->
+                            <tr>
+                                <td><strong>Joint Secretary</strong></td>
+                                <td>N.K. Agarwal</td>
+                                <td>Chief Chemist (Retd.) ONGC</td>
+                                <td>®26856451<br>(M) 98255-99251</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Mr.N.K.Agarwal after completing his Masters degree in Chemistry and Diploma in Petroleum Technology,joined ONGC in 1967.He worked with ONGC's different Projects at Dehradun,Assam,Ahmedabad,Vadodara,Bombay Offshor,Godavari Offshore and Karaikal.His field of speciality was Oil Field Scale and Corrosion problems and EOR Techniques for Oil Recovery.He was awarded more than a dozen merit certificates including Chairman's award on his outstanding work.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Treasurer -->
+                            <tr>
+                                <td><strong>Treasurer</strong></td>
+                                <td>Dinesh Garg</td>
+                                <td>Practising CA</td>
+                                <td>®22685590 (O)25633890<br>(M) 98251-69135</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="By profession he is Chartered Accountant with more than 20 years' of practice in the relevant field and as proprietor of M/S D. K. Garg & Company. He is professionally qualified as B.com, LLB, FCA. He is also the President of Arawali Agrawal Samaj, Ahmedabad and the President Elect of Rotary Club Ahmedabad Airport for the year of 2013/14. He is attached with so many social organisation.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Executive Member 1 -->
+                            <tr>
+                                <td><strong>Executive Member</strong></td>
+                                <td>Arvind Agarwal I.A.S</td>
+                                <td>Govt. of Gujarat</td>
+                                <td>®26861722 (O)23259513<br>(M) 98254-19819</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Arvind Agarwal is an IAS officer of 1984 batch in the Gujarat cadre. A post-graduate in Commerce, Arvind has lived in the state for the last 30 years, serving in many important assignments in the Gujarat Government, such as Collector & District Magistrate of Bharuch, Labour Commissioner, Transport Commissioner, Industries Commissioner, VC & MD of GIDC etc. Arvind is currently posted as Principal Secretary, Tribal Development Department of the State Government. Arvind is married to Mamta. The couple have two sons, Mehul and Pranay, who are settled in USA in Boston and Seattle respectively. Arvind's family hails from Basti in Eastern UP. While Arvind enjoys reading in his spare time, Mamta is interested in Sitar and is very active in the IAS Officers' Wives Association.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Executive Member 2 -->
+                            <tr>
+                                <td><strong>Executive Member</strong></td>
+                                <td>Manoj Agarwal I.P.S</td>
+                                <td>IG of Police</td>
+                                <td>®25621516 (O)23254417<br>(M) 9978406297</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Born in Uttar Pradesh, he passed his B.Tech and M.Tech from IIT Kanpur and then joined The Indian Police Service in 1991 after selection Through an all India Competitive examination held by the Union Public Service Commission. Allotted to the State of Gujarat, served as Superintendent of Police in many districts, DIG of Police in Border Range and Additional Commissioner of Police in Ahmedabad City. At present he is holding the important post of Inspector General of Police in the State Crime Records Bureau. He is deli snared as CIO of Home Department and looking after all the IT projects of Police. He was awarded Police Medal by The President of India in year 2008 for his long and meritorious services in The Police Department. During the service got Diploma in Cyber Security and Human Resourse Management. Represent Gujarat Police in All India tournaments of Lawn Tennis, Golf and Badminton and came runners up in Lawn Tennis and Golf.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Executive Member 3 -->
+                            <tr>
+                                <td><strong>Executive Member</strong></td>
+                                <td>Dr. H K Bansal</td>
+                                <td>Addl.Ch.Med.Suptdt., Western Railway</td>
+                                <td>®22920674 (O)22167174<br>(M) 9724093512</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Dr.H.K.Bansal,M.B.B.S.,PGDMCH,MD[AM]. work as,Add.CMS/ADI W.R. He joined indian Railways as class I officer in 1983.He is life member of IMA,Theosiphical society of india,IPHA,APA,SMA,Maharaja agrasen seva sansthan, & many other.His life mission is helping the needy,spreading the knowledge,heath awareness,public relationship, promoting understanding & trust in interpersonal relationships, understanding laws of nature, & standing up for values.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Executive Member 4 -->
+                            <tr>
+                                <td><strong>Executive Member</strong></td>
+                                <td>CP Jain</td>
+                                <td>Practising CA</td>
+                                <td>®27494409<br>(M) 9824036127</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="A chartered accountant with more than 27 years' post qualification experience. Presently practicing as Senior Partner of M/S C.P.Jain & Company, Chartered Accountants. He is advising large number of corporates in the matter of Funding and Structuring across the country.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Executive Member 5 -->
+                            <tr>
+                                <td><strong>Executive Member</strong></td>
+                                <td>Praveen Garg</td>
+                                <td>Head - Commercial, Uninor</td>
+                                <td>®9173038888<br>(M) 9173111153</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Mr. Praveen Garg, Engineer by Profession, having vast experience of diversified sectors like Home Appliances, FMCG, Telecom, alsoplays active role in various social activities. Life Member of 'Indian Institute of Materials Management', Recipient of many Awards during his professional career. Always known for his 'WE CAN DO IT' principle.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Executive Member 6 -->
+                            <tr>
+                                <td><strong>Executive Member</strong></td>
+                                <td>Pankaj Gupta</td>
+                                <td>Sr. Vice President - ICT, ITeS and Managed services</td>
+                                <td>N/A</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Pankaj Kumar Gupta is Sr. Vice President - ICT, ITeS and Managed services with Infrastructure leasing and Financial Services (IL &FS) and is heading for ICT operations of IL &FS in banking and e governance projects operating from GIFT city Gandhinagar. He has a total work experience of 22 years including 16 years of experience with Tata Consultancy Services in Delivery of ICT projects in banking, financial, taxation and e governance projects as head of global delivery for government vertical and operations head of Gujarat region handling 120 ICT projects and 7000 people team for projects spread across US, UK, Middle east and India. He stays with his parents Mr Abhimanyu Kumar Gupta (Rtd Chief Engineer –Drilling, ONGC) and Mrs. Shashi Gupta and his wife Ashwasti Gupta- an Architect and Urban planner. He has two sons- Shaleen Kumar Gupta studying in first year of DAIICT at Gandhinagar and Sachin Kumar Gupta studying in class 8 th. They belong to Amroha, District Moradabad UP.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Executive Member 7 -->
+                            <tr>
+                                <td><strong>Executive Member</strong></td>
+                                <td>Mahesh C. Gupta</td>
+                                <td>B. Com (Hons.) MBA, ACMA, FCS, Ll.M.</td>
+                                <td>N/A</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="Mahesh C Gupta, B. Com (Hons.) MBA, ACMA, FCS, Ll.M., is having a brilliant academic record to his credit. He was one of the toppers (amongst Top 10) of the Rajasthan Higher Secondary Education Board and also of Rajasthan University. He is MBA (Finance) 1981 batch and also as Associative Member of the Institute of Cost Accountants of India (ACMA) and a Fellow Member of The Institute of Company Secretaries of India (FCS). He is also having a Master degree in Law (LL.M.) in Commercial Laws from Gujarat University. He is a visiting faculty at many prestigious Management Institutes like Nirma Institute of Management, Institute of Rural Management, Anand, EDI, CEPT, MICA, CIIE Initiative at IIMA, NirmaLabs etc. He was Chairman of Ahmedabad Chapter of ICSI in 1991 and then Regional Council Member from 1992-1994. He was President of Gujarat Investors and Shareholders Association, one of the SEBI Registered Investors Association. He was Chairman/ Co-Chairman of various Committees like Corporate Law, Capital Market, Indirect Taxation etc. of GCCI and other chambers. Recently, a World Class Incubation Centre in the name of 'iCreate' has been set up by GMDC and GEVPF, a Section 25 Company. The Centre was launched by Shri Narendra Modi, the CM of Gujarat having Mr. Narayana Murthy as Chairman of the Advisory Committee. He is one of the promoters of GEVPF and Founding Team member of iCreate with other eminent academicians.">View Bio</button>
+                                </td>
+                            </tr>
+                            
+                            <!-- Executive Member 8 -->
+                            <tr>
+                                <td><strong>Executive Member</strong></td>
+                                <td>K L. Agarwal</td>
+                                <td>Dy. Gen. Manager (Engg - Elect)</td>
+                                <td>N/A</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary view-bio" data-bs-toggle="modal" data-bs-target="#bioModal" data-bio="KL Agrawal, Presently working as Dy. Gen. Manager (Engg - Elect) in Airports Authority of India at Ahmedabad Airport from last 6 Years. He Got Gold Medal in Diploma in Electrical Engineering from Chandigarh. Done B.Tech in Electrical Engineering and MBA in Finance. He completed 26 years service in AAI and work at Delhi, Jammu, Srinagar, Leh, Ludhiana, Chandigarh, Bhuntar, Gaggle, Dimapur (Nagaland), Vadodara, Lucknow and Amritsar Airports. His wife Richa Agrawal is house maker and B.Com Graduate, B.Ed. and MSW. He is blessed with two daughters, Kinjal Agrawal pressuring first year B.Tech (EC) from Nirma University, Ahmedabad. Second Daughter, Tanisha Agrawal studying in 11th in KV Shahibag.">View Bio</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bio Modal -->
+    <div class="modal fade" id="bioModal" tabindex="-1" aria-labelledby="bioModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bioModalLabel">Executive Member Bio</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="bioContent"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <footer class="footer" id="footerlinking">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="footer-title">APCA</h3>
+                    <p>Agrawal Professionals Cultural Association</p>
+                    <p>An Initiative by Agrawal Professionals... since 1992</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 83, Goyal Palace, Sarkhej – Gandhinagar Highway, Bodakdev, Ahmedabad – 380 054, Gujarat, India</li>
+                        <li><i class="fas fa-envelope me-2"></i> apca2000@hotmail.com</li>
+                        <li><i class="fas fa-phone me-2"></i> +91 98765 43210</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+    <h4 class="footer-title">Quick Links</h4>
+    <ul class="footer-links">
+        <li><a href="about.html">About APCA</a></li>
+        <li><a href="#" data-bs-toggle="modal" data-bs-target="#feedbackModal">Feedback / FAQs</a></li>
+        <li><a href="members-lounge.html">Member's Lounge</a></li>
+        <li><a href="job.html">Job Opportunities</a></li>
+        <li><a href="matrimonial.html">Matrimonial Services</a></li>
+        <li><a href="links.html">Useful Links</a></li>
+    </ul>
+</div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Agrawal Professionals Cultural Association. All Rights Reserved.</p>
+                <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> for the Agrawal Community</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
+    <!-- Executive Members Script -->
+    <script src="js/executive-members.js"></script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Directory - APCA</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Directory Page Specific Styles */
+.directory-hero {
+    background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 140px 0 80px;
+    text-align: center;
+    margin-top: 76px;
+}
+
+.directory-content {
+    padding: 80px 0;
+}
+
+.directory-intro {
+    margin-bottom: 50px;
+}
+
+.section-title {
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    text-align: center;
+    color: var(--primary);
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--secondary);
+}
+
+.directory-cards {
+    margin-bottom: 40px;
+}
+
+.directory-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    border-left: 5px solid var(--secondary);
+    transition: all 0.3s ease;
+}
+
+.directory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-right: 25px;
+    flex-shrink: 0;
+}
+
+.card-content {
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.card-content p {
+    color: var(--gray);
+    margin-bottom: 0;
+}
+
+.card-action {
+    flex-shrink: 0;
+    margin-left: 20px;
+}
+
+.btn-primary {
+    background: var(--secondary);
+    color: var(--primary);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-primary:hover {
+    background: #e6b400;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.info-card {
+    background: var(--light-bg);
+    border-radius: 15px;
+    padding: 25px;
+    border-left: 5px solid var(--primary);
+}
+
+.info-card h4 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.info-card p {
+    color: var(--dark);
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.info-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .directory-hero {
+        padding: 100px 0 60px;
+    }
+    
+    .directory-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 20px;
+    }
+    
+    .card-icon {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .card-content {
+        margin-bottom: 20px;
+    }
+    
+    .card-action {
+        margin-left: 0;
+    }
+    
+    .btn-primary {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .directory-hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .directory-card {
+        padding: 20px 15px;
+    }
+    
+    .card-icon {
+        font-size: 2rem;
+    }
+    
+    .card-content h3 {
+        font-size: 1.2rem;
+    }
+}
+    </style>
+    <script>
+        // Directory Page JavaScript
+$(document).ready(function() {
+    // Add animation classes to elements
+    $('.directory-card').addClass('animate-on-scroll').attr('data-animation', 'fadeInUp');
+    $('.info-card').addClass('animate-on-scroll').attr('data-animation', 'fadeInUp');
+    
+    // Add staggered delays
+    $('.directory-card').each(function(index) {
+        $(this).attr('data-delay', index * 100);
+    });
+    
+    // Download tracking
+    $('.btn-primary').on('click', function() {
+        const fileName = $(this).attr('href').split('/').pop();
+        console.log('Download initiated for:', fileName);
+        
+        // In a real implementation, you might want to track this with analytics
+        // Example: ga('send', 'event', 'Directory Download', 'Click', fileName);
+    });
+    
+    // Initialize scroll animations
+    $(window).on('scroll', function() {
+        $('.animate-on-scroll').each(function() {
+            var elementTop = $(this).offset().top;
+            var elementHeight = $(this).outerHeight();
+            var windowHeight = $(window).height();
+            var scrollTop = $(window).scrollTop();
+            
+            // Check if element is in viewport
+            if (elementTop < (scrollTop + windowHeight - 100) && 
+                (elementTop + elementHeight) > scrollTop) {
+                var animationType = $(this).data('animation') || 'fadeInUp';
+                var delay = $(this).data('delay') || 0;
+                
+                // Apply animation with delay
+                setTimeout(() => {
+                    $(this).addClass('animate-' + animationType);
+                }, delay);
+            }
+        });
+    });
+    
+    // Trigger once on load
+    $(window).trigger('scroll');
+});
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            AGARWAL PROFESSIONALS
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="about.html">
+                        ABOUT US
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="members-lounge.html" class="active">MEMBER'S LOUNGE</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        SERVICES
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><a class="dropdown-item" href="job.html">Job opportunities</a></li>
+                        <li><a class="dropdown-item" href="matrimonial.html">Matrimonial services</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="links.html">LINKS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="registration.html">REGISTRATION</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#footerlinking">CONTACT US</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero directory-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold text-white mb-4 hero-title">Members Directory</h1>
+                    <p class="lead text-white hero-subtitle">Access our community member directories</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Directory Content -->
+    <section class="directory-content py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="directory-intro text-center mb-5">
+                        <h2 class="section-title">APCA Member Directories</h2>
+                        <p class="text-muted">Download our member directories to connect with the Agrawal community</p>
+                    </div>
+                    
+                    <!-- Directory Cards -->
+                    <div class="directory-cards">
+                        <!-- APCA Members Directory -->
+                        <div class="directory-card">
+                            <div class="card-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Directory of APCA Members</h3>
+                                <p class="text-muted">Complete directory of APCA members with contact information</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="docs/apca-members-directory.pdf" class="btn btn-primary" download>
+                                    <i class="fas fa-download me-2"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Additional directory cards can be added here as needed -->
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <footer class="footer" id="footerlinking">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="footer-title">APCA</h3>
+                    <p>Agrawal Professionals Cultural Association</p>
+                    <p>An Initiative by Agrawal Professionals... since 1992</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 83, Goyal Palace, Sarkhej – Gandhinagar Highway, Bodakdev, Ahmedabad – 380 054, Gujarat, India</li>
+                        <li><i class="fas fa-envelope me-2"></i> apca2000@hotmail.com</li>
+                        <li><i class="fas fa-phone me-2"></i> +91 98765 43210</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+    <h4 class="footer-title">Quick Links</h4>
+    <ul class="footer-links">
+        <li><a href="about.html">About APCA</a></li>
+        <li><a href="#" data-bs-toggle="modal" data-bs-target="#feedbackModal">Feedback / FAQs</a></li>
+        <li><a href="members-lounge.html">Member's Lounge</a></li>
+        <li><a href="job.html">Job Opportunities</a></li>
+        <li><a href="matrimonial.html">Matrimonial Services</a></li>
+        <li><a href="links.html">Useful Links</a></li>
+    </ul>
+</div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Agrawal Professionals Cultural Association. All Rights Reserved.</p>
+                <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> for the Agrawal Community</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
+    <!-- Directory Script -->
+    <script src="js/directory.js"></script>
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useful Links - APCA</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Links Page JavaScript
+$(document).ready(function() {
+    // Add animation classes to link cards
+    $('.link-card').addClass('animate-on-scroll').attr('data-animation', 'fadeInUp');
+    
+    // Add staggered delays
+    $('.link-card').each(function(index) {
+        $(this).attr('data-delay', (index % 3) * 100);
+    });
+    
+    // External link warning
+    $('a[target="_blank"]').on('click', function(e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        
+        // Show confirmation dialog
+        if (confirm('You are about to visit an external website. Do you want to continue?')) {
+            window.open(url, '_blank');
+        }
+    });
+    
+    // Hover effect for link cards
+    $('.link-card').hover(
+        function() {
+            $(this).find('.link-icon').css('transform', 'scale(1.1) rotate(5deg)');
+        },
+        function() {
+            $(this).find('.link-icon').css('transform', 'scale(1) rotate(0)');
+        }
+    );
+});
+    </script>
+    <style>
+        /* Links Page Specific Styles */
+.links-hero {
+    background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 140px 0 80px;
+    text-align: center;
+    margin-top: 76px;
+}
+
+.links-section {
+    padding: 80px 0;
+    background: var(--light-bg);
+}
+
+.link-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    text-align: center;
+    border-top: 5px solid var(--secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.link-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.link-card:hover::before {
+    transform: scaleX(1);
+}
+
+.link-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.link-icon {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.link-card:hover .link-icon {
+    transform: scale(1.1) rotate(5deg);
+    color: var(--primary);
+}
+
+.link-card h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link-card p {
+    color: var(--gray);
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.link-btn {
+    display: inline-block;
+    background: var(--secondary);
+    color: var(--primary);
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid var(--secondary);
+}
+
+.link-btn:hover {
+    background: transparent;
+    color: var(--secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.link-btn i {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.link-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .links-hero {
+        padding: 100px 0 60px;
+    }
+    
+    .link-card {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+    }
+    
+    .link-card h3 {
+        font-size: 1.1rem;
+        min-height: auto;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            AGARWAL PROFESSIONALS
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="about.html">
+                        ABOUT US
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="members-lounge.html" class="active">MEMBER'S LOUNGE</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        SERVICES
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><a class="dropdown-item" href="job.html">Job opportunities</a></li>
+                        <li><a class="dropdown-item" href="matrimonial.html">Matrimonial services</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="links.html">LINKS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="registration.html">REGISTRATION</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#footerlinking">CONTACT US</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <!-- Hero Section -->
+    <section class="page-hero links-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold text-white mb-4 hero-title">Useful Links</h1>
+                    <p class="lead text-white hero-subtitle">Connecting you to Agrawal community resources worldwide</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Links Section -->
+    <section class="links-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Agrawal Community Resources</h2>
+            <p class="text-center mb-5">Explore these valuable resources from Agrawal organizations around the world</p>
+            
+            <div class="row">
+                <!-- Link Card 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="link-card animate-on-scroll" data-animation="fadeInUp" data-delay="100">
+                        <div class="link-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Akhil Bhartiya Agrawal Sammelan</h3>
+                        <p>New Delhi, India</p>
+                        <a href="https://www.allagrawal.org" target="_blank" class="link-btn">
+                            Visit Website <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Link Card 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="link-card animate-on-scroll" data-animation="fadeInUp" data-delay="200">
+                        <div class="link-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h3>Agroha Vikas Trust</h3>
+                        <p>Agroha, India</p>
+                        <a href="https://www.agroha.com" target="_blank" class="link-btn">
+                            Visit Website <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Link Card 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="link-card animate-on-scroll" data-animation="fadeInUp" data-delay="300">
+                        <div class="link-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Shri Maharaja Agrasen Seva Sansthan</h3>
+                        <p>Ahmedabad, India</p>
+                        <a href="https://www.agrasensamaj.org" target="_blank" class="link-btn">
+                            Visit Website <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Link Card 4 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="link-card animate-on-scroll" data-animation="fadeInUp" data-delay="100">
+                        <div class="link-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Sri Agrasen Samiti</h3>
+                        <p>Hyderabad, India</p>
+                        <a href="https://www.agarwalcommunity.com" target="_blank" class="link-btn">
+                            Visit Website <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Link Card 5 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="link-card animate-on-scroll" data-animation="fadeInUp" data-delay="200">
+                        <div class="link-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Agrawal Sabha</h3>
+                        <p>India</p>
+                        <a href="https://www.agrawalsabha.com" target="_blank" class="link-btn">
+                            Visit Website <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Link Card 6 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="link-card animate-on-scroll" data-animation="fadeInUp" data-delay="300">
+                        <div class="link-icon">
+                            <i class="fas fa-temple"></i>
+                        </div>
+                        <h3>Shree Agrasen Mandal</h3>
+                        <p>Nagpur, India</p>
+                        <a href="https://www.agrasenmandal.com" target="_blank" class="link-btn">
+                            Visit Website <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Link Card 7 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="link-card animate-on-scroll" data-animation="fadeInUp" data-delay="100">
+                        <div class="link-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Aakhil Bhartiya Aggarwal Samaj</h3>
+                        <p>Haryana, India</p>
+                        <a href="https://www.aggarwalsamaj.co.in" target="_blank" class="link-btn">
+                            Visit Website <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Link Card 8 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="link-card animate-on-scroll" data-animation="fadeInUp" data-delay="200">
+                        <div class="link-icon">
+                            <i class="fas fa-hands"></i>
+                        </div>
+                        <h3>Agrawal Samaj</h3>
+                        <p>Allahabad, India</p>
+                        <a href="https://www.agrawalsamaj.info" target="_blank" class="link-btn">
+                            Visit Website <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Link Card 9 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="link-card animate-on-scroll" data-animation="fadeInUp" data-delay="300">
+                        <div class="link-icon">
+                            <i class="fas fa-club"></i>
+                        </div>
+                        <h3>Agrawal's Club</h3>
+                        <p>India</p>
+                        <a href="https://www.agrawalsclub.com" target="_blank" class="link-btn">
+                            Visit Website <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Link Card 10 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="link-card animate-on-scroll" data-animation="fadeInUp" data-delay="100">
+                        <div class="link-icon">
+                            <i class="fas fa-flag-usa"></i>
+                        </div>
+                        <h3>Agrawal Samaj</h3>
+                        <p>New Jersey, USA</p>
+                        <a href="https://www.agrawalsamajusa.org" target="_blank" class="link-btn">
+                            Visit Website <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Link Card 11 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="link-card animate-on-scroll" data-animation="fadeInUp" data-delay="200">
+                        <div class="link-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Agrawal - Wikipedia</h3>
+                        <p>Online Encyclopedia</p>
+                        <a href="https://en.wikipedia.org/wiki/Agrawal" target="_blank" class="link-btn">
+                            Visit Page <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Link Card 12 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="link-card animate-on-scroll" data-animation="fadeInUp" data-delay="300">
+                        <div class="link-icon">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <h3>News Portal For Agrawal Samaj</h3>
+                        <p>India</p>
+                        <a href="https://www.agrawalnewscentre.in" target="_blank" class="link-btn">
+                            Visit Website <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<footer class="footer" id="footerlinking">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="footer-title">APCA</h3>
+                    <p>Agrawal Professionals Cultural Association</p>
+                    <p>An Initiative by Agrawal Professionals... since 1992</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 83, Goyal Palace, Sarkhej – Gandhinagar Highway, Bodakdev, Ahmedabad – 380 054, Gujarat, India</li>
+                        <li><i class="fas fa-envelope me-2"></i> apca2000@hotmail.com</li>
+                        <li><i class="fas fa-phone me-2"></i> +91 98765 43210</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+    <h4 class="footer-title">Quick Links</h4>
+    <ul class="footer-links">
+        <li><a href="about.html">About APCA</a></li>
+        <li><a href="#" data-bs-toggle="modal" data-bs-target="#feedbackModal">Feedback / FAQs</a></li>
+        <li><a href="members-lounge.html">Member's Lounge</a></li>
+        <li><a href="job.html">Job Opportunities</a></li>
+        <li><a href="matrimonial.html">Matrimonial Services</a></li>
+        <li><a href="links.html">Useful Links</a></li>
+    </ul>
+</div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Agrawal Professionals Cultural Association. All Rights Reserved.</p>
+                <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> for the Agrawal Community</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>

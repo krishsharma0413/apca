@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - APCA</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+   <style>
+    /* Registration Page Specific Styles */
+.registration-hero {
+    background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 140px 0 80px;
+    text-align: center;
+    margin-top: 76px;
+}
+
+.registration-section {
+    padding: 80px 0;
+    background: var(--light-bg);
+}
+
+.form-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    text-align: center;
+    border-top: 5px solid var(--secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.form-card:hover::before {
+    transform: scaleX(1);
+}
+
+.form-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.form-icon {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.form-card:hover .form-icon {
+    transform: scale(1.1) rotate(5deg);
+    color: var(--primary);
+}
+
+.form-card h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.form-card p {
+    color: var(--gray);
+    margin-bottom: 25px;
+}
+
+.download-btn {
+    display: inline-block;
+    background: var(--secondary);
+    color: var(--primary);
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid var(--secondary);
+}
+
+.download-btn:hover {
+    background: transparent;
+    color: var(--secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Information Section */
+.info-section {
+    margin: 60px 0;
+}
+
+.info-card {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border-radius: 15px;
+    padding: 30px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.info-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+}
+
+.info-content {
+    line-height: 1.8;
+}
+
+.info-content p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.signature {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--secondary-light);
+    text-align: right;
+    margin-top: 20px;
+}
+
+/* Contact Section */
+.contact-section {
+    margin-top: 60px;
+}
+
+.contact-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    height: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid var(--secondary);
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 15px;
+}
+
+.contact-card h4 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    color: var(--gray);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .registration-hero {
+        padding: 100px 0 60px;
+    }
+    
+    .form-card {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+    }
+    
+    .info-card {
+        padding: 20px 15px;
+    }
+    
+    .contact-card {
+        margin-bottom: 20px;
+    }
+}
+   </style>
+   <script>
+    // Registration Page JavaScript
+$(document).ready(function() {
+    // Add animation classes to elements
+    $('.form-card').addClass('animate-on-scroll').attr('data-animation', 'fadeInUp');
+    $('.info-section').addClass('animate-on-scroll').attr('data-animation', 'fadeInUp');
+    $('.contact-section').addClass('animate-on-scroll').attr('data-animation', 'fadeInUp');
+    
+    // Add staggered delays
+    $('.form-card').each(function(index) {
+        $(this).attr('data-delay', index * 100);
+    });
+    
+    // Download button animation
+    $('.download-btn').hover(
+        function() {
+            $(this).css('transform', 'translateY(-3px)');
+            $(this).find('i').css('transform', 'translateY(3px)');
+        },
+        function() {
+            $(this).css('transform', 'translateY(0)');
+            $(this).find('i').css('transform', 'translateY(0)');
+        }
+    );
+    
+    // PDF download tracking (optional)
+    $('.download-btn').on('click', function(e) {
+        const formName = $(this).closest('.form-card').find('h3').text();
+        console.log('Download initiated for:', formName);
+        
+        // In a real implementation, you might want to track this with analytics
+        // Example: ga('send', 'event', 'Form Download', 'Click', formName);
+    });
+    
+    // Smooth scroll to contact section
+    $('a[href="#footerlinking"]').on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $('#footerlinking').offset().top
+        }, 800);
+    });
+});
+   </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            AGARWAL PROFESSIONALS
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="about.html">
+                        ABOUT US
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="members-lounge.html" class="active">MEMBER'S LOUNGE</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        SERVICES
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><a class="dropdown-item" href="job.html">Job opportunities</a></li>
+                        <li><a class="dropdown-item" href="matrimonial.html">Matrimonial services</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="links.html">LINKS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="registration.html">REGISTRATION</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#footerlinking">CONTACT US</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <!-- Hero Section -->
+    <section class="page-hero registration-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold text-white mb-4 hero-title">Membership Registration</h1>
+                    <p class="lead text-white hero-subtitle">Join the Agrawal Professionals Cultural Association</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="registration-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="registration-content">
+                        <h2 class="section-title text-center mb-5">Download Membership Forms</h2>
+                        
+                        <div class="row">
+                            <!-- APCA Membership Form -->
+                            <div class="col-md-6 mb-4">
+                                <div class="form-card animate-on-scroll" data-animation="fadeInUp" data-delay="100">
+                                    <div class="form-icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <h3>APCA Membership Form</h3>
+                                    <p>For regular membership of Agrawal Professionals Cultural Association</p>
+                                    <a href="APCA-Membership Form_18.10.2016.pdf" class="download-btn" download>
+                                        <i class="fas fa-download me-2"></i> Download Form
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- Yuva APCA Membership Form -->
+                            <div class="col-md-6 mb-4">
+                                <div class="form-card animate-on-scroll" data-animation="fadeInUp" data-delay="200">
+                                    <div class="form-icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <h3>Yuva APCA Membership Form</h3>
+                                    <p>For youth membership of Agrawal Professionals Cultural Association</p>
+                                    <a href="YUVA_APCA-Constitution&MembershipForm.pdf" class="download-btn" download>
+                                        <i class="fas fa-download me-2"></i> Download Form
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Information Section -->
+                        <div class="info-section animate-on-scroll" data-animation="fadeInUp" data-delay="300">
+                            <div class="info-card">
+                                <h4 class="info-title">
+                                    <i class="fas fa-hands-helping me-2"></i> Dear Agra Bandhu,
+                                </h4>
+                                <div class="info-content">
+                                    <p>APCA and Yuva APCA Membership form (PDF Format) is attached herewith. Please download the same and read all the criteria carefully.</p>
+                                    <p>If you meet all the criteria, please get in touch with Executive Member to know more about registration process.</p>
+                                    <p class="signature">Jai Agrasen.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Information -->
+                        <div class="contact-section animate-on-scroll" data-animation="fadeInUp" data-delay="400">
+                            <h3 class="text-center mb-4">For More Information</h3>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="contact-card">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-user-tie"></i>
+                                        </div>
+                                        <h4>Executive Members</h4>
+                                        <p>Contact our executive members for guidance through the registration process</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="contact-card">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <h4>Email Us</h4>
+                                        <p>apca2000@hotmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+  <footer class="footer" id="footerlinking">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="footer-title">APCA</h3>
+                    <p>Agrawal Professionals Cultural Association</p>
+                    <p>An Initiative by Agrawal Professionals... since 1992</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 83, Goyal Palace, Sarkhej – Gandhinagar Highway, Bodakdev, Ahmedabad – 380 054, Gujarat, India</li>
+                        <li><i class="fas fa-envelope me-2"></i> apca2000@hotmail.com</li>
+                        <li><i class="fas fa-phone me-2"></i> +91 98765 43210</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+    <h4 class="footer-title">Quick Links</h4>
+    <ul class="footer-links">
+        <li><a href="about.html">About APCA</a></li>
+        <li><a href="#" data-bs-toggle="modal" data-bs-target="#feedbackModal">Feedback / FAQs</a></li>
+        <li><a href="members-lounge.html">Member's Lounge</a></li>
+        <li><a href="job.html">Job Opportunities</a></li>
+        <li><a href="matrimonial.html">Matrimonial Services</a></li>
+        <li><a href="links.html">Useful Links</a></li>
+    </ul>
+</div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Agrawal Professionals Cultural Association. All Rights Reserved.</p>
+                <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> for the Agrawal Community</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
+    <!-- Registration Script -->
+    <script src="js/registration.js"></script>
+</body>
+</html>

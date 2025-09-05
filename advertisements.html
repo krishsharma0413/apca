@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APCA - Community Advertisements</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-dark: #153060;
+            --secondary: #d4af37;
+            --secondary-light: #e9c46a;
+            --accent: #e63946;
+            --light: #f8f9fa;
+            --dark: #2a2d3e;
+            --gray: #6c757d;
+            --light-bg: #f1faee;
+            --overlay-bg: rgba(26, 54, 93, 0.85);
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            padding-top: 80px;
+            background-color: var(--light);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: rgba(26, 54, 93, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            color: var(--secondary) !important;
+            font-size: 1.7rem;
+            letter-spacing: 0.5px;
+            margin-right: 0;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.85) !important;
+            margin: 0 12px;
+            position: relative;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            padding: 8px 5px !important;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary) !important;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .dropdown-menu {
+            background: rgba(26, 54, 93, 0.95);
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .dropdown-item {
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        .dropdown-item:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(26, 54, 93, 0.9)), url('https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            padding: 120px 0 80px;
+            color: white;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+            text-align: center;
+            color: var(--primary);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* Advertisement Cards */
+        .ad-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: all 0.4s ease;
+            height: 100%;
+            background: white;
+        }
+        
+        .ad-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .ad-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .ad-card:hover .ad-image {
+            transform: scale(1.1);
+        }
+        
+        .ad-content {
+            padding: 30px;
+        }
+        
+        .ad-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .ad-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .ad-description {
+            margin-bottom: 20px;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .ad-tags {
+            margin-bottom: 20px;
+        }
+        
+        .ad-tag {
+            display: inline-block;
+            background: var(--light-bg);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            background: var(--secondary);
+            border: none;
+            color: var(--primary);
+            padding: 12px 25px;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: var(--secondary-light);
+            color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-outline-primary {
+            color: var(--secondary);
+            border-color: var(--secondary);
+            font-weight: 600;
+            border-radius: 10px;
+            padding: 12px 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(212, 175, 55, 0.3);
+        }
+        
+        /* Categories Filter */
+        .categories-filter {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .categories-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .category-btn {
+            background: var(--light);
+            border: 2px solid transparent;
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .category-btn:hover, 
+        .category-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        /* Featured Ad Section */
+        .featured-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+        }
+        
+        .featured-ad {
+            border: 3px solid var(--secondary);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+            margin-top: 80px;
+        }
+        
+        .footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary);
+        }
+        
+        .footer-title {
+            position: relative;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .footer-links {
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+            list-style: none;
+        }
+        
+        .footer-links li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 5px 0;
+        }
+        
+        .footer-links li a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .categories-list {
+                gap: 10px;
+            }
+            
+            .category-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 100px 0 60px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .page-header p {
+                font-size: 1.1rem;
+            }
+            
+            .ad-content {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .categories-list {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .category-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">AGARWAL PROFESSIONALS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="about.html">
+                            ABOUT US
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="members-lounge.html">MEMBER'S LOUNGE</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            SERVICES
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="job.html">Job opportunities</a></li>
+                            <li><a class="dropdown-item" href="matrimonial.html">Matrimonial services</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="links.html">LINKS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registration.html">REGISTRATION</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#footerlinking">CONTACT US</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Community Advertisements</h1>
+            <p>Explore business opportunities, services, and announcements from our community members</p>
+        </div>
+    </section>
+
+    <!-- Categories Filter -->
+
+
+    <!-- All Advertisements -->
+    <section class="container my-5 py-5">
+        <h2 class="section-title">Community Advertisements</h2>
+        <div class="row">
+            <!-- Ad 1 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="ad-card">
+                    <img src="https://images.unsplash.com/photo-1563014959-7aaa83350992?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Real Estate" class="ad-image">
+                    <div class="ad-content">
+                        <div class="ad-meta">
+                            <span><i class="fas fa-calendar-alt me-2"></i>Oct 12, 2023</span>
+                            <span><i class="fas fa-eye me-2"></i>189 Views</span>
+                        </div>
+                        <h3>Commercial Space for Rent</h3>
+                        <p class="ad-description">Prime commercial space available in Bodakdev area. 1200 sq ft, ideal for showroom or office. Parking available.</p>
+                        <div class="ad-tags">
+                            <span class="ad-tag">Real Estate</span>
+                            <span class="ad-tag">Commercial</span>
+                        </div>
+                        <a href="#" class="btn btn-outline-primary">Contact Owner</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 2 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="ad-card">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Education" class="ad-image">
+                    <div class="ad-content">
+                        <div class="ad-meta">
+                            <span><i class="fas fa-calendar-alt me-2"></i>Oct 10, 2023</span>
+                            <span><i class="fas fa-eye me-2"></i>156 Views</span>
+                        </div>
+                        <h3>Math Tutoring Services</h3>
+                        <p class="ad-description">Experienced tutor offering mathematics classes for grades 9-12. CBSE and ICSE curriculum. Online and offline options available.</p>
+                        <div class="ad-tags">
+                            <span class="ad-tag">Education</span>
+                            <span class="ad-tag">Tutoring</span>
+                        </div>
+                        <a href="#" class="btn btn-outline-primary">Contact Tutor</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 3 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="ad-card">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Catering" class="ad-image">
+                    <div class="ad-content">
+                        <div class="ad-meta">
+                            <span><i class="fas fa-calendar-alt me-2"></i>Oct 8, 2023</span>
+                            <span><i class="fas fa-eye me-2"></i>201 Views</span>
+                        </div>
+                        <h3>Traditional Gujarati Catering</h3>
+                        <p class="ad-description">Authentic Gujarati catering for weddings, engagements, and other ceremonies. Custom menus available. Book early for festival season.</p>
+                        <div class="ad-tags">
+                            <span class="ad-tag">Services</span>
+                            <span class="ad-tag">Catering</span>
+                        </div>
+                        <a href="#" class="btn btn-outline-primary">Get Quote</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 4 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="ad-card">
+                    <img src="https://images.unsplash.com/photo-1564422019956-5c24b8e1fe14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Event" class="ad-image">
+                    <div class="ad-content">
+                        <div class="ad-meta">
+                            <span><i class="fas fa-calendar-alt me-2"></i>Oct 5, 2023</span>
+                            <span><i class="fas fa-eye me-2"></i>178 Views</span>
+                        </div>
+                        <h3>Diwali Community Gathering</h3>
+                        <p class="ad-description">Join us for a grand Diwali celebration on November 12th. Cultural programs, dinner, and fireworks. Families welcome.</p>
+                        <div class="ad-tags">
+                            <span class="ad-tag">Events</span>
+                            <span class="ad-tag">Diwali</span>
+                        </div>
+                        <a href="#" class="btn btn-outline-primary">Register Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 5 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="ad-card">
+                    <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Products" class="ad-image">
+                    <div class="ad-content">
+                        <div class="ad-meta">
+                            <span><i class="fas fa-calendar-alt me-2"></i>Oct 3, 2023</span>
+                            <span><i class="fas fa-eye me-2"></i>164 Views</span>
+                        </div>
+                        <h3>Handmade Diwali Decorations</h3>
+                        <p class="ad-description">Beautiful handmade Diwali decorations, torans, and diyas. Custom orders accepted. Free delivery within Ahmedabad.</p>
+                        <div class="ad-tags">
+                            <span class="ad-tag">Products</span>
+                            <span class="ad-tag">Handmade</span>
+                        </div>
+                        <a href="#" class="btn btn-outline-primary">View Products</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 6 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="ad-card">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Health" class="ad-image">
+                    <div class="ad-content">
+                        <div class="ad-meta">
+                            <span><i class="fas fa-calendar-alt me-2"></i>Oct 1, 2023</span>
+                            <span><i class="fas fa-eye me-2"></i>132 Views</span>
+                        </div>
+                        <h3>Ayurvedic Wellness Center</h3>
+                        <p class="ad-description">Traditional Ayurvedic treatments and consultations. Panchakarma therapy available. Certified practitioners.</p>
+                        <div class="ad-tags">
+                            <span class="ad-tag">Services</span>
+                            <span class="ad-tag">Health</span>
+                        </div>
+                        <a href="#" class="btn btn-outline-primary">Book Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <nav aria-label="Advertisement pagination" class="mt-5">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footerlinking">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="footer-title">APCA</h3>
+                    <p>Agrawal Professionals Cultural Association</p>
+                    <p>An Initiative by Agrawal Professionals... since 1992</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 83, Goyal Palace, Sarkhej – Gandhinagar Highway, Bodakdev, Ahmedabad – 380 054, Gujarat, India</li>
+                        <li><i class="fas fa-envelope me-2"></i> apca2000@hotmail.com</li>
+                        <li><i class="fas fa-phone me-2"></i> +91 98765 43210</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About APCA</a></li>
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#feedbackModal">Feedback / FAQs</a></li>
+                        <li><a href="members-lounge.html">Member's Lounge</a></li>
+                        <li><a href="job.html">Job Opportunities</a></li>
+                        <li><a href="matrimonial.html">Matrimonial Services</a></li>
+                        <li><a href="links.html">Useful Links</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Agrawal Professionals Cultural Association. All Rights Reserved.</p>
+                <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> for the Agrawal Community</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Custom Script -->
+    <script>
+        $(document).ready(function() {
+            // Navbar background change on scroll
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > 50) {
+                    $('.navbar').css('padding', '8px 0');
+                    $('.navbar').css('box-shadow', '0 4px 18px rgba(0, 0, 0, 0.2)');
+                } else {
+                    $('.navbar').css('padding', '12px 0');
+                    $('.navbar').css('box-shadow', '0 4px 18px rgba(0, 0, 0, 0.15)');
+                }
+            });
+            
+            // Category filter functionality
+            $('.category-btn').click(function() {
+                $('.category-btn').removeClass('active');
+                $(this).addClass('active');
+                // Here you would typically filter the advertisements
+                // This is just a placeholder for the functionality
+            });
+            
+            // Smooth scrolling for anchor links
+            $('a[href*="#"]').on('click', function(e) {
+                e.preventDefault();
+                
+                $('html, body').animate(
+                    {
+                        scrollTop: $($(this).attr('href')).offset().top - 80,
+                    },
+                    500,
+                    'linear'
+                );
+            });
+        });
+    </script>
+</body>
+</html>

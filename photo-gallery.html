@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APCA - Navbar & Footer</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index2.html">Agarwal Professionals</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index2.html">HOME</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="about.html">
+                            ABOUT US
+                        </a>
+                        
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="members-lounge.html">MEMBER'S LOUNGE</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="aboutus.html" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            SERVICES
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="job.html">JOb opportunities</a></li>
+                            <li><a class="dropdown-item" href="matrimonial.html">Matrimonial services</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="links.html">LINKS</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="eventsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            NEWS & EVENTS
+                        </a>
+                        
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registration.html">REGISTRATION</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#footerlinking">CONTACT US</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!-- Gallery Header -->
+    <section class="gallery-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">Photo Gallery</h1>
+                    <p class="lead">Relive our memorable events and community gatherings</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Listing -->
+    <section class="events-listing py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Event 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="event-card">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Annual Gathering 2023" class="event-image">
+                        <div class="event-content">
+                            <h3>Annual Gathering 2023</h3>
+                            <p class="event-date">January 15, 2023</p>
+                            <p class="event-desc">Celebrating another year of community growth and togetherness</p>
+                            <a href="gallery-annual-2023.html" class="btn btn-primary">View Photos</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="event-card">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Youth Conference" class="event-image">
+                        <div class="event-content">
+                            <h3>Youth Leadership Conference</h3>
+                            <p class="event-date">March 22, 2023</p>
+                            <p class="event-desc">Empowering the next generation of Agrawal professionals</p>
+                            <a href="gallery-youth-conference.html" class="btn btn-primary">View Photos</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="event-card">
+                        <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Cultural Festival" class="event-image">
+                        <div class="event-content">
+                            <h3>Cultural Festival</h3>
+                            <p class="event-date">August 10, 2023</p>
+                            <p class="event-desc">Showcasing our rich traditions and artistic talents</p>
+                            <a href="gallery-cultural-festival.html" class="btn btn-primary">View Photos</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="event-card">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Charity Event" class="event-image">
+                        <div class="event-content">
+                            <h3>Charity Fundraiser</h3>
+                            <p class="event-date">May 5, 2023</p>
+                            <p class="event-desc">Supporting education for underprivileged children</p>
+                            <a href="gallery-charity-event.html" class="btn btn-primary">View Photos</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 5 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="event-card">
+                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Business Workshop" class="event-image">
+                        <div class="event-content">
+                            <h3>Business Workshop</h3>
+                            <p class="event-date">October 18, 2023</p>
+                            <p class="event-desc">Networking and skill development for professionals</p>
+                            <a href="gallery-business-workshop.html" class="btn btn-primary">View Photos</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 6 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="event-card">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Family Day" class="event-image">
+                        <div class="event-content">
+                            <h3>Family Day Celebration</h3>
+                            <p class="event-date">December 3, 2023</p>
+                            <p class="event-desc">Fun activities for all family members</p>
+                            <a href="gallery-family-day.html" class="btn btn-primary">View Photos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footerlinking">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="footer-title">APCA</h3>
+                    <p>Agrawal Professionals Cultural Association</p>
+                    <p>An Initiative by Agrawal Professionals... since 1992</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 83, Goyal Palace, Sarkhej – Gandhinagar Highway, Bodakdev, Ahmedabad – 380 054, Gujarat, India</li>
+                        <li><i class="fas fa-envelope me-2"></i> apca2000@hotmail.com</li>
+                        <li><i class="fas fa-phone me-2"></i> +91 98765 43210</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="footer-links">
+                                <li><a href="about.html">About APCA</a></li>
+                                <li><a href="registration.html">Membership</a></li>
+                                <li><a href="events.html">Events</a></li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="members-lounge.html">Community</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="footer-links">
+                                <li><a href="gallery.html">Photo Gallery</a></li>
+                                <li><a href="news.html">Newsletter</a></li>
+                                <li><a href="#">Best Wishes</a></li>
+                                <li><a href="#">Advertisement</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Agrawal Professionals Cultural Association (APCA). All rights reserved.</p>
+                <p>Building Agrawal Community since 1992</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Custom Script -->
+    <script>
+        $(document).ready(function() {
+            // Navbar background change on scroll
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > 50) {
+                    $('.navbar').css('padding', '8px 0');
+                    $('.navbar').css('box-shadow', '0 4px 18px rgba(0, 0, 0, 0.2)');
+                } else {
+                    $('.navbar').css('padding', '12px 0');
+                    $('.navbar').css('box-shadow', '0 4px 18px rgba(0, 0, 0, 0.15)');
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            $('a[href*="#"]').on('click', function(e) {
+                e.preventDefault();
+                
+                $('html, body').animate(
+                    {
+                        scrollTop: $($(this).attr('href')).offset().top - 80,
+                    },
+                    500,
+                    'linear'
+                );
+            });
+        });
+    </script>
+</body>
+</html>

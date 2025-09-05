@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Events - APCA</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <script>// Events Page JavaScript
+$(document).ready(function() {
+    // Add animation classes to elements
+    $('.year-section').addClass('animate-on-scroll').attr('data-animation', 'fadeInUp');
+    $('.upcoming-card').addClass('animate-on-scroll').attr('data-animation', 'fadeInUp');
+    
+    // Add staggered delays
+    $('.year-section').each(function(index) {
+        $(this).attr('data-delay', index * 100);
+    });
+    
+    // Download link tracking
+    $('.download-link').on('click', function(e) {
+        const fileName = $(this).attr('href').split('/').pop();
+        console.log('Download initiated for:', fileName);
+        
+        // In a real implementation, you might want to track this with analytics
+        // Example: ga('send', 'event', 'Event File Download', 'Click', fileName);
+    });
+    
+    // Gallery link handling
+    $('.gallery-link').on('click', function(e) {
+        e.preventDefault();
+        const eventName = $(this).attr('href').split('=')[1];
+        alert('This would open the photo gallery for: ' + eventName);
+        
+        // In a real implementation, this would redirect to the gallery page
+        // window.location.href = $(this).attr('href');
+    });
+    
+    // Sort events by year (newest first)
+    const yearSections = $('.year-section').get();
+    yearSections.sort((a, b) => {
+        return parseInt($(b).find('.year-title').text()) - parseInt($(a).find('.year-title').text());
+    });
+    
+    $('.events-section .container').append(yearSections);
+});</script>
+    <style>
+        /* Events Page Specific Styles */
+.events-hero {
+    background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85)), url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 140px 0 80px;
+    text-align: center;
+    margin-top: 76px;
+}
+
+.events-section {
+    padding: 80px 0;
+}
+
+.year-section {
+    margin-bottom: 60px;
+}
+
+.year-title {
+    color: var(--primary);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--secondary);
+    font-size: 1.8rem;
+}
+
+.events-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.events-table th {
+    background: var(--primary);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.events-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+}
+
+.events-table tr:last-child td {
+    border-bottom: none;
+}
+
+.events-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.events-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.download-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background: rgba(26, 54, 93, 0.1);
+}
+
+.download-link:hover {
+    color: white;
+    background: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(26, 54, 93, 0.2);
+}
+
+.gallery-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.gallery-link:hover {
+    color: white;
+    background: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+}
+
+.upcoming-events {
+    padding: 80px 0;
+}
+
+.upcoming-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    transition: all 0.3s ease;
+    border-top: 5px solid var(--secondary);
+}
+
+.upcoming-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.upcoming-icon {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+.upcoming-card h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.upcoming-card p {
+    color: var(--gray);
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .events-hero {
+        padding: 100px 0 60px;
+    }
+    
+    .events-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .events-table th,
+    .events-table td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .download-link,
+    .gallery-link {
+        padding: 6px 8px;
+        font-size: 0.9rem;
+    }
+    
+    .upcoming-card {
+        padding: 25px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .year-title {
+        font-size: 1.5rem;
+    }
+    
+    .events-table {
+        font-size: 0.85rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            AGARWAL PROFESSIONALS
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="about.html">
+                        ABOUT US
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="members-lounge.html" class="active">MEMBER'S LOUNGE</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        SERVICES
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><a class="dropdown-item" href="job.html">Job opportunities</a></li>
+                        <li><a class="dropdown-item" href="matrimonial.html">Matrimonial services</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="links.html">LINKS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="registration.html">REGISTRATION</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#footerlinking">CONTACT US</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero events-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold text-white mb-4 hero-title">News & Events</h1>
+                    <p class="lead text-white hero-subtitle">Stay updated with APCA events and activities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">APCA Events Archive</h2>
+            
+            <!-- Year 2014 -->
+            <div class="year-section animate-on-scroll" data-animation="fadeInUp" data-delay="100">
+                <h3 class="year-title">2014 Events</h3>
+                <div class="table-responsive">
+                    <table class="table events-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Event</th>
+                                <th>Invitation Letter</th>
+                                <th>Photogallery</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>28/09/2014</td>
+                                <td>Maharaja Agrasen Jayanti</td>
+                                <td>
+                                    <a href="docs/events/2014/maharaja-agrasen-jayanti-2014.doc" class="download-link" download>
+                                        <i class="fas fa-file-word me-2"></i> Download Word File
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="gallery.html?event=maharaja-agrasen-jayanti-2014" class="gallery-link">
+                                        <i class="fas fa-images me-2"></i> View Photos
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>20/04/2014</td>
+                                <td>Annual General Meeting + Election</td>
+                                <td>
+                                    <div class="d-flex flex-column">
+                                        <a href="docs/events/2014/apca-election-2014.doc" class="download-link mb-2" download>
+                                            <i class="fas fa-file-word me-2"></i> Circular-APCA Election 2014
+                                        </a>
+                                        <a href="docs/events/2014/apca-agm-2014.doc" class="download-link" download>
+                                            <i class="fas fa-file-word me-2"></i> Circular-APCA AGM 2014
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="gallery.html?event=agm-election-2014" class="gallery-link">
+                                        <i class="fas fa-images me-2"></i> View Photos
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>06/04/2014</td>
+                                <td>Visit to Sardar Patel Memorial</td>
+                                <td>
+                                    <a href="docs/events/2014/sardar-patel-visit-2014.doc" class="download-link" download>
+                                        <i class="fas fa-file-word me-2"></i> Download Word File
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="gallery.html?event=sardar-patel-visit-2014" class="gallery-link">
+                                        <i class="fas fa-images me-2"></i> View Photos
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>19/01/2014</td>
+                                <td>Sports Meet (Anand Niketan School)</td>
+                                <td>
+                                    <a href="docs/events/2014/sports-meet-2014.doc" class="download-link" download>
+                                        <i class="fas fa-file-word me-2"></i> Download Word File
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="gallery.html?event=sports-meet-2014" class="gallery-link">
+                                        <i class="fas fa-images me-2"></i> View Photos
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Year 2013 -->
+            <div class="year-section animate-on-scroll" data-animation="fadeInUp" data-delay="200">
+                <h3 class="year-title">2013 Events</h3>
+                <div class="table-responsive">
+                    <table class="table events-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Event</th>
+                                <th>Invitation Letter</th>
+                                <th>Photogallery</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>06/10/2013</td>
+                                <td>Maharaja Agrasen Jayanti</td>
+                                <td>
+                                    <a href="docs/events/2013/maharaja-agrasen-jayanti-2013.doc" class="download-link" download>
+                                        <i class="fas fa-file-word me-2"></i> Download Word File
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="gallery.html?event=maharaja-agrasen-jayanti-2013" class="gallery-link">
+                                        <i class="fas fa-images me-2"></i> View Photos
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>08/09/2013</td>
+                                <td>Outdoor Visit (Salanpur Hanumanji + Lothal + Ganeshpura Mess)</td>
+                                <td>
+                                    <a href="docs/events/2013/outdoor-visit-2013.doc" class="download-link" download>
+                                        <i class="fas fa-file-word me-2"></i> Download Word File
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="gallery.html?event=outdoor-visit-2013" class="gallery-link">
+                                        <i class="fas fa-images me-2"></i> View Photos
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>05/05/2013</td>
+                                <td>Annual General Meeting</td>
+                                <td>
+                                    <a href="docs/events/2013/agm-2013.doc" class="download-link" download>
+                                        <i class="fas fa-file-word me-2"></i> Download Word File
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="gallery.html?event=agm-2013" class="gallery-link">
+                                        <i class="fas fa-images me-2"></i> View Photos
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>20/01/2013</td>
+                                <td>Sports Meet (Anand Niketan School)</td>
+                                <td>
+                                    <a href="docs/events/2013/sports-meet-2013.doc" class="download-link" download>
+                                        <i class="fas fa-file-word me-2"></i> Download Word File
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="gallery.html?event=sports-meet-2013" class="gallery-link">
+                                        <i class="fas fa-images me-2"></i> View Photos
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>06/01/2013</td>
+                                <td>Picnic (Desert Safari - Surendranager)</td>
+                                <td>
+                                    <a href="docs/events/2013/desert-safari-2013.doc" class="download-link" download>
+                                        <i class="fas fa-file-word me-2"></i> Download Word File
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="gallery.html?event=desert-safari-2013" class="gallery-link">
+                                        <i class="fas fa-images me-2"></i> View Photos
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Year 2012 -->
+            <div class="year-section animate-on-scroll" data-animation="fadeInUp" data-delay="300">
+                <h3 class="year-title">2012 Events</h3>
+                <div class="table-responsive">
+                    <table class="table events-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Event</th>
+                                <th>Invitation Letter</th>
+                                <th>Photogallery</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>21/10/2012</td>
+                                <td>Maharaja Agrasen Jayanti</td>
+                                <td>
+                                    <a href="docs/events/2012/maharaja-agrasen-jayanti-2012.doc" class="download-link" download>
+                                        <i class="fas fa-file-word me-2"></i> Download Word File
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="gallery.html?event=maharaja-agrasen-jayanti-2012" class="gallery-link">
+                                        <i class="fas fa-images me-2"></i> View Photos
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footerlinking">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="footer-title">APCA</h3>
+                    <p>Agrawal Professionals Cultural Association</p>
+                    <p>An Initiative by Agrawal Professionals... since 1992</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 83, Goyal Palace, Sarkhej – Gandhinagar Highway, Bodakdev, Ahmedabad – 380 054, Gujarat, India</li>
+                        <li><i class="fas fa-envelope me-2"></i> apca2000@hotmail.com</li>
+                        <li><i class="fas fa-phone me-2"></i> +91 98765 43210</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+    <h4 class="footer-title">Quick Links</h4>
+    <ul class="footer-links">
+        <li><a href="about.html">About APCA</a></li>
+        <li><a href="#" data-bs-toggle="modal" data-bs-target="#feedbackModal">Feedback / FAQs</a></li>
+        <li><a href="members-lounge.html">Member's Lounge</a></li>
+        <li><a href="job.html">Job Opportunities</a></li>
+        <li><a href="matrimonial.html">Matrimonial Services</a></li>
+        <li><a href="links.html">Useful Links</a></li>
+    </ul>
+</div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Agrawal Professionals Cultural Association. All Rights Reserved.</p>
+                <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> for the Agrawal Community</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
+    <!-- Events Script -->
+    <script src="js/events.js"></script>
+</body>
+</html>

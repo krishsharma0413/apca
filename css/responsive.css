@@ -1,0 +1,484 @@
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+    .navbar-nav {
+        background: rgba(26, 54, 93, 0.95);
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 10px;
+        backdrop-filter: blur(10px);
+    }
+    
+    .nav-link {
+        margin: 8px 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .footer {
+        text-align: center;
+    }
+    
+    .footer-title:after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .impact-content {
+        padding: 30px;
+    }
+    
+    .hero-banner {
+        height: 500px;
+    }
+    
+    .strength-card, .org-card, .explore-card, .event-card {
+        margin-bottom: 25px;
+    }
+    
+    .carousel-caption {
+        width: 90%;
+        padding: 15px;
+        bottom: 20px;
+    }
+    
+    .carousel-caption h3 {
+        font-size: 1.2rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-banner {
+        height: 400px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+    }
+    
+    .welcome-section, .org-section, .explore-section, .strengths-section, .gallery-section, .impact-section, .events-section {
+        padding: 70px 0;
+    }
+    
+    .impact-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .impact-content h3 {
+        font-size: 1.4rem;
+    }
+    
+    .gallery-carousel .carousel-item {
+        height: 350px;
+    }
+    
+    .stat-number {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    
+    .hero-banner {
+        height: 350px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .btn-primary, .btn-outline-primary {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .strength-card {
+        padding: 20px 15px;
+    }
+    
+    .strength-card i {
+        font-size: 2.5rem;
+    }
+    
+    .org-content, .explore-content, .event-content {
+        padding: 20px;
+    }
+    
+    .gallery-carousel .carousel-item {
+        height: 300px;
+    }
+    
+    .footer {
+        padding: 50px 0 20px;
+    }
+    
+    .copyright {
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+    
+    .impact-content {
+        padding: 20px;
+    }
+    
+    .welcome-content {
+        padding: 20px;
+    }
+}
+@media (max-width: 992px) {
+    .navbar-nav {
+        background: rgba(26, 54, 93, 0.95);
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 10px;
+        backdrop-filter: blur(10px);
+        text-align: center;
+    }
+    
+    .nav-link {
+        margin: 8px 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.4rem;
+    }
+}
+@media (max-width: 992px) {
+    #heroCarousel .carousel-caption h1 {
+        font-size: 2.8rem;
+    }
+    
+    #heroCarousel .carousel-caption h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #heroCarousel,
+    #heroCarousel .carousel-item {
+        height: 80vh;
+        min-height: 500px;
+    }
+    
+    #heroCarousel .carousel-caption h1 {
+        font-size: 2.3rem;
+    }
+    
+    #heroCarousel .carousel-caption h2 {
+        font-size: 1.8rem;
+    }
+    
+    #heroCarousel .carousel-caption p {
+        font-size: 1.1rem;
+    }
+    
+    #heroCarousel .hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 576px) {
+    #heroCarousel,
+    #heroCarousel .carousel-item {
+        height: 70vh;
+        min-height: 450px;
+    }
+    
+    #heroCarousel .carousel-caption h1 {
+        font-size: 2rem;
+    }
+    
+    #heroCarousel .carousel-caption h2 {
+        font-size: 1.5rem;
+    }
+    
+    #heroCarousel .carousel-caption p {
+        font-size: 1rem;
+    }
+    
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
+@media (max-width: 768px) {
+    .welcome-content .row {
+        flex-direction: column-reverse;
+    }
+    
+    .welcome-content .col-md-6 {
+        width: 100%;
+    }
+    
+    .welcome-content .welcome-image {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 992px) {
+    .welcome-image {
+        height: 350px;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-content {
+        padding: 30px;
+    }
+    
+    .welcome-image {
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .welcome-image {
+        height: 250px;
+    }
+}
+@media (max-width: 768px) {
+    .president-message {
+        font-size: 1rem;
+    }
+    
+    .website-link {
+        font-size: 1.1rem;
+    }
+    
+    .president-signature {
+        text-align: center;
+        margin-top: 25px;
+    }
+}@media (max-width: 992px) {
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .timeline-event {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+        left: 0 !important;
+        justify-content: flex-start !important;
+    }
+    
+    .timeline-event::after {
+        left: 21px !important;
+        right: auto !important;
+    }
+    
+    .event-date {
+        margin: 0 20px 0 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline-event {
+        padding-left: 60px;
+        padding-right: 15px;
+        min-height: 80px;
+    }
+    
+    .event-date {
+        width: 70px;
+        padding: 12px;
+    }
+    
+    .date-day {
+        font-size: 1.5rem;
+    }
+    
+    .event-name h3 {
+        font-size: 1.2rem;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .timeline-event {
+        padding-left: 50px;
+        flex-direction: column;
+        align-items: flex-start;
+        min-height: auto;
+        margin-bottom: 25px;
+    }
+    
+    .timeline-event::after {
+        width: 18px;
+        height: 18px;
+        left: 16px !important;
+    }
+    
+    .event-date {
+        width: 60px;
+        padding: 10px;
+        margin: 0 0 15px 0;
+    }
+    
+    .date-day {
+        font-size: 1.3rem;
+    }
+    
+    .event-name {
+        width: 100%;
+    }
+    
+    .event-name h3 {
+        font-size: 1.1rem;
+        padding: 10px 15px;
+    }
+}
+@media (max-width: 1200px) {
+    .explore-card {
+        max-width: 900px;
+        height: 190px;
+    }
+}
+
+@media (max-width: 992px) {
+    .explore-card {
+        max-width: 800px;
+        height: 180px;
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .explore-card img {
+        width: 100%;
+        height: 180px; /* Fixed height for vertical layout */
+    }
+    
+    .explore-content {
+        width: 100%;
+        padding: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .explore-card {
+        max-width: 600px;
+    }
+    
+    .explore-card img {
+        height: 160px;
+    }
+    
+    .explore-content h4 {
+        font-size: 1.2rem;
+    }
+    
+    .explore-content p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .explore-card {
+        max-width: 100%;
+        margin: 0 10px 25px 10px;
+    }
+    
+    .explore-card img {
+        height: 150px;
+    }
+    
+    .explore-content {
+        padding: 15px;
+    }
+    
+    .explore-content h4 {
+        font-size: 1.1rem;
+    }
+    
+    .explore-content p {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+    
+    .explore-content .btn {
+        padding: 7px 18px;
+        font-size: 0.85rem;
+    }
+}
+@media (max-width: 768px) {
+    .page-header {
+        padding: 100px 0 60px;
+    }
+    
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .about-content {
+        padding: 30px;
+    }
+    
+    .activities-section {
+        padding: 30px 20px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-header {
+        padding: 80px 0 40px;
+    }
+    
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .about-content {
+        padding: 20px;
+    }
+    
+    .blessing-text h3 {
+        font-size: 1.5rem;
+    }
+    
+    .highlight-box {
+        padding: 20px;
+    }
+}
