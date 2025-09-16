@@ -103,7 +103,7 @@
 
 .scroll-content {
   display: flex;
-  width: max-content;
+  width: 100vw;
   /*animation: scroll 100s linear infinite;*/
 }
 
@@ -134,8 +134,52 @@
   }
 }
 
+.spin-forever {
+  animation: spin 45s linear infinite;
+  animation-play-state: running;
+}
+
 .spin {
   animation: spin 15s linear infinite;
   animation-play-state: paused;
+}
+
+h1 {
+}
+
+@media (min-width: 768px) {
+  .gallery-title {
+    font-size: 150px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .gallery-span {
+    font-size: 75px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .gallery-button {
+    font-size: 30px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .line-img {
+    width: 250px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .community {
+    width: 70% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .community-div {
+    width: 100% !important;
+  }
 }
 

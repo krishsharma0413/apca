@@ -1,0 +1,8 @@
+@font-face {
+	font-family: 'Taiganja Type';
+	src: url(../../assets/fonts/Taiganja%20Type-c016407083ac1d36ab76de257ba2951d.woff2) format('woff2'),
+	url(../../assets/fonts/Taiganja%20Type-10ae1936ab597eb1225f3611174f3f35.woff) format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
