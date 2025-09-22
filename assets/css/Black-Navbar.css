@@ -183,3 +183,28 @@ h1 {
   }
 }
 
+@media (min-width: 768px) {
+  .member-card {
+    margin: 10px !important;
+  }
+}
+
+.flip-grid:hover {
+  background-position: top !important;
+  color: #ae2929 !important;
+}
+
+.flip-grid {
+  background: linear-gradient(to top, #ae2929 50%, #f6d76d 50%) right;
+  color: #f6d76d;
+  background-size: 100% 200%;
+  background-position: bottom;
+  transition: background-position 0.5s ease, color 0.5s ease;
+}
+
+@media (min-width: 768px) {
+  .exec-card {
+    margin: 10px !important;
+  }
+}
+

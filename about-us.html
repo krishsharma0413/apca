@@ -4,7 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>apca</title>
+    <title>Agrawal Professionals Cultural Association</title>
+    <link rel="canonical" href="http://www.agrawalprofessionals.com/about-us.html">
+    <meta property="og:url" content="http://www.agrawalprofessionals.com/about-us.html">
+    <meta name="description" content="APCA was founded in 1992 by a few Agrawal Scientists and officers of Indian Space Research Organisation at Ahmedabad. It has grown tremendously since then and has encompassed Agrawal Professionals from different fields outside ISRO.
+
+An initiative by Agarwal Professionals, since 1992.">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/almalikregular.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amita&amp;display=swap">
@@ -23,75 +28,189 @@
 
 <body style="background: #edeff4;">
     <div class="d-flex justify-content-end align-items-center" style="padding: 5px;background: rgba(230,230,230,0.38);">
-        <p style="margin-bottom: 0px;margin-right: 10px;font-family: Montserrat, sans-serif;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="font-size: 21px;">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.00977 5.83789C3.00977 5.28561 3.45748 4.83789 4.00977 4.83789H20C20.5523 4.83789 21 5.28561 21 5.83789V17.1621C21 18.2667 20.1046 19.1621 19 19.1621H5C3.89543 19.1621 3 18.2667 3 17.1621V6.16211C3 6.11449 3.00333 6.06765 3.00977 6.0218V5.83789ZM5 8.06165V17.1621H19V8.06199L14.1215 12.9405C12.9499 14.1121 11.0504 14.1121 9.87885 12.9405L5 8.06165ZM6.57232 6.80554H17.428L12.7073 11.5263C12.3168 11.9168 11.6836 11.9168 11.2931 11.5263L6.57232 6.80554Z" fill="currentColor"></path>
+        <p style="margin-bottom: 0px;margin-right: 10px;font-family: Montserrat, sans-serif;"><svg
+                xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none"
+                style="font-size: 21px;">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M3.00977 5.83789C3.00977 5.28561 3.45748 4.83789 4.00977 4.83789H20C20.5523 4.83789 21 5.28561 21 5.83789V17.1621C21 18.2667 20.1046 19.1621 19 19.1621H5C3.89543 19.1621 3 18.2667 3 17.1621V6.16211C3 6.11449 3.00333 6.06765 3.00977 6.0218V5.83789ZM5 8.06165V17.1621H19V8.06199L14.1215 12.9405C12.9499 14.1121 11.0504 14.1121 9.87885 12.9405L5 8.06165ZM6.57232 6.80554H17.428L12.7073 11.5263C12.3168 11.9168 11.6836 11.9168 11.2931 11.5263L6.57232 6.80554Z"
+                    fill="currentColor"></path>
             </svg>&nbsp;apca2000@hotmail.com</p>
-        <p style="margin-bottom: 0px;margin-right: 10px;"><select style="border-style: none;padding: 5px 10px;background: rgb(244,244,244);font-family: Montserrat, sans-serif;">
+        <p style="margin-bottom: 0px;margin-right: 10px;">
+            <select id="page-lang-change"
+                style="border-style: none;padding: 5px 10px;background: rgb(244,244,244);font-family: Montserrat, sans-serif;">
                 <optgroup label="Select Language">
-                    <option value="english">English</option>
-                    <option value="hindi">Hindi</option>
-                    <option value="gujrati">Gujrati</option>
+                    <option value="en">English</option>
+                    <option value="hi">Hindi</option>
+                    <option value="gu">Gujarati</option>
                 </optgroup>
-            </select></p>
+            </select>
+        </p>
+        <script>
+            // if the page-lang-change changes then change the page URL to the value of it.
+            document.getElementById('page-lang-change').addEventListener('change', function () {
+                var selectedValue = this.value;
+
+                // Get the current page path (everything after the domain)
+                var currentPath = window.location.pathname;
+
+                // Base URLs
+                const enBase = "https://krishsharma.in";
+                const translateBase = "https://krishsharma-in.translate.goog";
+
+                var targetUrl = '';
+
+                if (selectedValue === 'en') {
+                    // Switch to English - construct the original URL with current path
+                    targetUrl = enBase + currentPath;
+                } else if (selectedValue === 'hi') {
+                    // Switch to Hindi translation
+                    targetUrl = translateBase + currentPath + "?_x_tr_sl=auto&_x_tr_tl=hi&_x_tr_hl=en-US&_x_tr_pto=wapp";
+                } else if (selectedValue === 'gu') {
+                    // Switch to Gujarati translation
+                    targetUrl = translateBase + currentPath + "?_x_tr_sl=auto&_x_tr_tl=gu&_x_tr_hl=en-US&_x_tr_pto=wapp";
+                }
+
+                if (targetUrl) {
+                    window.location.href = targetUrl;
+                }
+            });
+        </script>
     </div>
     <nav class="navbar navbar-expand-md sticky-top bg-body position-sticky" style="background: #AE2929 !important;">
-        <div class="container-fluid"><a class="navbar-brand" href="#" style="color: rgb(255,255,255);font-family: Montserrat, sans-serif;font-weight: bold;"><img src="assets/img/typographic%20logo%20apca.png" width="150" height="60"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1" style="font-family: Montserrat, sans-serif;color: rgb(255,255,255);border-style: none;"><i class="fas fa-bars" style="font-size: 28px;"></i></button>
-            <div class="collapse navbar-collapse d-md-flex justify-content-md-end" id="navcol-1" style="font-family: Montserrat, sans-serif;">
+        <div class="container-fluid"><a class="navbar-brand" href="/apca"
+                style="color: rgb(255,255,255);font-family: Montserrat, sans-serif;font-weight: bold;"><img
+                    src="assets/img/typographic%20logo%20apca.png" width="150" height="60"></a><button
+                data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"
+                style="font-family: Montserrat, sans-serif;color: rgb(255,255,255);border-style: none;"><i
+                    class="fas fa-bars" style="font-size: 28px;"></i></button>
+            <div class="collapse navbar-collapse d-md-flex justify-content-md-end" id="navcol-1"
+                style="font-family: Montserrat, sans-serif;">
                 <ul class="navbar-nav" style="font-family: Montserrat, sans-serif;">
-                    <li class="nav-item dropdown" style="color: rgb(255,255,255);font-family: Montserrat, sans-serif;"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: rgb(255,255,255);font-size: 14px;font-family: Montserrat, sans-serif;">ABOUT</a>
-                        <div class="dropdown-menu" style="font-family: Montserrat, sans-serif;"><a class="dropdown-item" href="/about-us.html" style="font-family: Montserrat, sans-serif;">About Us</a><a class="dropdown-item" href="/links.html" style="font-family: Montserrat, sans-serif;">Links</a></div>
+                    <li class="nav-item dropdown" style="color: rgb(255,255,255);font-family: Montserrat, sans-serif;">
+                        <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"
+                            style="color: rgb(255,255,255);font-size: 14px;font-family: Montserrat, sans-serif;">ABOUT</a>
+                        <div class="dropdown-menu" style="font-family: Montserrat, sans-serif;"><a class="dropdown-item"
+                                href="/apca/about-us.html" style="font-family: Montserrat, sans-serif;">About Us</a><a
+                                class="dropdown-item" href="/apca/links.html"
+                                style="font-family: Montserrat, sans-serif;">Links</a></div>
                     </li>
-                    <li class="nav-item dropdown" style="color: rgb(255,255,255);font-family: Montserrat, sans-serif;"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: rgb(255,255,255);font-size: 14px;font-family: Montserrat, sans-serif;">COMMUNITY</a>
-                        <div class="dropdown-menu" style="font-family: Montserrat, sans-serif;"><a class="dropdown-item" href="/members-lounge.html" style="font-family: Montserrat, sans-serif;">Member's Lounge</a><a class="dropdown-item" href="/registrations.html" style="font-family: Montserrat, sans-serif;">Registration</a><a class="dropdown-item" href="/guest-book.html" style="font-family: Montserrat, sans-serif;">Guest Book</a><a class="dropdown-item" href="/faqs.html" style="font-family: Montserrat, sans-serif;">FAQs</a></div>
+                    <li class="nav-item dropdown" style="color: rgb(255,255,255);font-family: Montserrat, sans-serif;">
+                        <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"
+                            style="color: rgb(255,255,255);font-size: 14px;font-family: Montserrat, sans-serif;">COMMUNITY</a>
+                        <div class="dropdown-menu" style="font-family: Montserrat, sans-serif;"><a class="dropdown-item"
+                                href="/apca/under-construction.html"
+                                style="font-family: Montserrat, sans-serif;">Member's Lounge</a><a class="dropdown-item"
+                                href="/apca/membership-registration.html"
+                                style="font-family: Montserrat, sans-serif;">Registration</a><a class="dropdown-item"
+                                href="/apca/under-construction.html" style="font-family: Montserrat, sans-serif;">Guest
+                                Book</a><a class="dropdown-item" href="/apca/under-construction.html"
+                                style="font-family: Montserrat, sans-serif;">FAQs</a></div>
                     </li>
-                    <li class="nav-item" style="font-family: Montserrat, sans-serif;"><a class="nav-link" href="/news.html" style="color: rgb(255,255,255);font-family: Montserrat, sans-serif;font-size: 14px;">NEWS</a></li>
-                    <li class="nav-item" style="font-family: Montserrat, sans-serif;font-size: 14px;"><a class="nav-link" href="/contact-us.html" style="color: rgb(255,255,255);font-family: Montserrat, sans-serif;font-size: 14px;">CONTACT</a></li>
+                    <li class="nav-item" style="font-family: Montserrat, sans-serif;"><a class="nav-link"
+                            href="/apca/newsletter.html"
+                            style="color: rgb(255,255,255);font-family: Montserrat, sans-serif;font-size: 14px;">NEWS</a>
+                    </li>
+                    <li class="nav-item" style="font-family: Montserrat, sans-serif;font-size: 14px;"><a
+                            class="nav-link" href="/apca/contact-us.html"
+                            style="color: rgb(255,255,255);font-family: Montserrat, sans-serif;font-size: 14px;">CONTACT</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
     <section class="position-relative" style="padding: 40px 0px;background: white;text-align: center;">
-        <h1 style="text-align: center;color: #AE2929;font-family: 'Reem Kufi Fun', sans-serif;font-size: 40px;font-weight: bold;">About APCA</h1><img class="img-fluid line-img" width="860" height="84" src="assets/img/line-1.png" style="width: 35%;">
-        <p style="font-family: 'Reem Kufi Fun', sans-serif;font-weight: bold;">Agrawal Professionals Cultural Association (APCA) 1992</p>
+        <h1
+            style="text-align: center;color: #AE2929;font-family: 'Reem Kufi Fun', sans-serif;font-size: 40px;font-weight: bold;">
+            About APCA</h1><img class="img-fluid line-img" width="860" height="84" src="assets/img/line-1.png"
+            style="width: 35%;">
+        <p style="font-family: 'Reem Kufi Fun', sans-serif;font-weight: bold;">Agrawal Professionals Cultural
+            Association (APCA) 1992</p>
     </section>
-    <div class="position-relative" id="jai-shree-agrasen-maharaj" style="background: #ae2929;padding: 20px 0px;text-align: center;">
-        <h2 style="color: #F6D76D;text-align: center;font-family: 'Reem Kufi Fun', sans-serif;font-weight: bold;margin-bottom: 0px;">Jai Shree Agrasen Maharaj</h2><img class="img-fluid" width="707" height="512" src="assets/img/pray.png" style="width: 150px;margin-top: 20px;"><img class="img-fluid position-absolute" width="525" height="512" style="top: 0px;right: 0;width: 100px;opacity: 0.25;" src="assets/img/right%20top%20footer.png"><img class="img-fluid position-absolute" width="525" height="512" style="bottom: 0px;left: 0px;width: 100px;opacity: 0.25;transform: rotate(180deg);" src="assets/img/right%20top%20footer.png">
+    <div class="position-relative" id="jai-shree-agrasen-maharaj"
+        style="background: #ae2929;padding: 20px 0px;text-align: center;">
+        <h2
+            style="color: #F6D76D;text-align: center;font-family: 'Reem Kufi Fun', sans-serif;font-weight: bold;margin-bottom: 0px;">
+            Jai Shree Agrasen Maharaj</h2><img class="img-fluid" width="707" height="512" src="assets/img/pray.png"
+            style="width: 150px;margin-top: 20px;"><img class="img-fluid position-absolute" width="525" height="512"
+            style="top: 0px;right: 0;width: 100px;opacity: 0.25;" src="assets/img/right%20top%20footer.png"><img
+            class="img-fluid position-absolute" width="525" height="512"
+            style="bottom: 0px;left: 0px;width: 100px;opacity: 0.25;transform: rotate(180deg);"
+            src="assets/img/right%20top%20footer.png">
     </div>
-    <div class="position-relative" id="main-content" style="padding: 50px 0px;text-align: center;background: white;overflow-x: hidden;overflow-y: hidden;">
+    <div class="position-relative" id="main-content"
+        style="padding: 50px 0px;text-align: center;background: white;overflow-x: hidden;overflow-y: hidden;">
         <div class="d-flex justify-content-center align-items-center">
-            <p style="margin-bottom: 0px;width: 80%;font-family: 'Reem Kufi Fun', sans-serif;"><br>APCA was founded in 1992 by a few Agrawal Scientists and officers of Indian Space Research Organisation at Ahmedabad. It has grown tremendously since then and has encompassed Agrawal Professionals from different fields outside ISRO.<br><br>Now it is a body of senior officers from central and state Governments and Public Sector undertakings as well as professionals from diverse fields and disciplines. APCA members include senior officers from I.A.S., I.P.S., ISRO, ONGC, PRL, Income Tax, Customs &amp; Excise, Railways, Banks and professionals like Engineers, Doctors, Scientists, Chartered Accountants, Company Secretaries, Advocates, Professors, etc.<br><br>APCA is a vibrant Association and is known all over the State for its activities in social, cultural, educational, and philanthropic fields.</p>
+            <p style="margin-bottom: 0px;width: 80%;font-family: 'Reem Kufi Fun', sans-serif;"><br>APCA was founded in
+                1992 by a few Agrawal Scientists and officers of Indian Space Research Organisation at Ahmedabad. It has
+                grown tremendously since then and has encompassed Agrawal Professionals from different fields outside
+                ISRO.<br><br>Now it is a body of senior officers from central and state Governments and Public Sector
+                undertakings as well as professionals from diverse fields and disciplines. APCA members include senior
+                officers from I.A.S., I.P.S., ISRO, ONGC, PRL, Income Tax, Customs &amp; Excise, Railways, Banks and
+                professionals like Engineers, Doctors, Scientists, Chartered Accountants, Company Secretaries,
+                Advocates, Professors, etc.<br><br>APCA is a vibrant Association and is known all over the State for its
+                activities in social, cultural, educational, and philanthropic fields.</p>
         </div>
-        <div class="position-absolute" style="top: 50px;left: calc(100% - 240px);/*width: 500px;*//*height: 500px;*/"><img class="spin-forever" src="assets/img/rotating%20mandala.png" style="width: 500px;/*top: 0px;*//*left: calc(100% - 240px);*//*overflow: hidden;*/"></div>
+        <div class="position-absolute" style="top: 50px;left: calc(100% - 240px);/*width: 500px;*//*height: 500px;*/">
+            <img class="spin-forever" src="assets/img/rotating%20mandala.png"
+                style="width: 500px;/*top: 0px;*//*left: calc(100% - 240px);*//*overflow: hidden;*/">
+        </div>
         <div class="d-flex justify-content-center align-items-center">
-            <div class="position-relative" style="width: 80%;background: #ae2929;border-radius: 8px;padding: 20px;margin-top: 40px;"><img class="img-fluid position-absolute" width="344" height="344" src="assets/img/full%20mandala.png" style="left: -75px;top: -73px;width: 150px;">
+            <div class="position-relative"
+                style="width: 80%;background: #ae2929;border-radius: 8px;padding: 20px;margin-top: 40px;"><img
+                    class="img-fluid position-absolute" width="344" height="344" src="assets/img/full%20mandala.png"
+                    style="left: -75px;top: -73px;width: 150px;">
                 <h3 style="font-family: 'Reem Kufi Fun', sans-serif;font-weight: bold;color: #F6D76D;">YUVA APCA</h3>
-                <p style="margin-bottom: 0px;font-family: 'Reem Kufi Fun', sans-serif;color: white;padding: 0px 10px;">APCA started its youth chapter by the name "YUVA AGRAWAL PROFESSIONALS <br>CULTURAL ASSOCIATION" for young Agrawal professionals in the age group of 21 to 35 years, in the year 2006. YUVA APCA has also grown continuously. They join APCA activities like Agrasen Jayanti and Annual Sports Meet and also organize their separate activities during the year.</p>
+                <p style="margin-bottom: 0px;font-family: 'Reem Kufi Fun', sans-serif;color: white;padding: 0px 10px;">
+                    APCA started its youth chapter by the name "YUVA AGRAWAL PROFESSIONALS <br>CULTURAL ASSOCIATION" for
+                    young Agrawal professionals in the age group of 21 to 35 years, in the year 2006. YUVA APCA has also
+                    grown continuously. They join APCA activities like Agrasen Jayanti and Annual Sports Meet and also
+                    organize their separate activities during the year.</p>
             </div>
         </div>
         <div class="d-flex justify-content-center align-items-center" style="margin-top: 40px;">
-            <p style="margin-bottom: 0px;width: 80%;font-family: 'Reem Kufi Fun', sans-serif;">The Constitution of APCA has undergone some changes in the past. A copy of the current Constitution is included in the souvenir. List of present APCA and YUVA-APCA members are also included to facilitate interaction amongst the members. The contribution of previous Executive Committees must be cognized in the growth of APCA and therefore lists of the Executive Committee during the last 20 years are also included.</p>
+            <p style="margin-bottom: 0px;width: 80%;font-family: 'Reem Kufi Fun', sans-serif;">The Constitution of APCA
+                has undergone some changes in the past. A copy of the current Constitution is included in the souvenir.
+                List of present APCA and YUVA-APCA members are also included to facilitate interaction amongst the
+                members. The contribution of previous Executive Committees must be cognized in the growth of APCA and
+                therefore lists of the Executive Committee during the last 20 years are also included.</p>
         </div>
-        <div style="margin: 40px 0px;"><button class="btn btn-primary" type="button" style="background: #AE2929;color: #F6D76D;font-family: 'Reem Kufi Fun', sans-serif;font-size: 18px;padding: 10px 20px;border-radius: 10px;border-style: none;">Download Constitution pdf</button>
+        <div style="margin: 40px 0px;"><button class="btn btn-primary" type="button"
+                style="background: #AE2929;color: #F6D76D;font-family: 'Reem Kufi Fun', sans-serif;font-size: 18px;padding: 10px 20px;border-radius: 10px;border-style: none;"
+                onclick="window.location.href = '/apca/assets/pdf/APCA CONSTITUTION.pdf';">Download Constitution
+                pdf</button>
             <div class="d-flex justify-content-center align-items-center">
-                <div class="position-relative" style="width: 80%;background: #ae2929;border-radius: 8px;padding: 40px 20px;margin-top: 40px;">
-                    <h3 style="font-family: 'Reem Kufi Fun', sans-serif;font-weight: bold;color: #F6D76D;">APCA Activities &amp; Events</h3><img class="img-fluid line-img" width="356" height="28" src="assets/img/newline.png" style="width: 40%;">
+                <div class="position-relative"
+                    style="width: 80%;background: #ae2929;border-radius: 8px;padding: 40px 20px;margin-top: 40px;">
+                    <h3 style="font-family: 'Reem Kufi Fun', sans-serif;font-weight: bold;color: #F6D76D;">APCA
+                        Activities &amp; Events</h3><img class="img-fluid line-img" width="356" height="28"
+                        src="assets/img/newline.png" style="width: 40%;">
                     <div class="d-md-flex justify-content-md-center align-items-md-center">
                         <div>
                             <ul style="font-size: 18px;">
-                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">Annual functions with family participation</li>
-                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">Children's talent development programs</li>
-                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">Games and sports events in January</li>
-                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">Public speaking contests</li>
-                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">Treasure Hunt events</li>
+                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">
+                                    Annual functions with family participation</li>
+                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">
+                                    Children's talent development programs</li>
+                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">
+                                    Games and sports events in January</li>
+                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">
+                                    Public speaking contests</li>
+                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">
+                                    Treasure Hunt events</li>
                             </ul>
                         </div>
                         <div>
                             <ul style="font-size: 18px;">
-                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">Annual functions with family participation</li>
-                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">Educational lectures on various topics</li>
-                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">Excursion trips to historical places</li>
-                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">Foreign tours (e.g., Sri Lanka)</li>
-                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">Quarterly newsletter publication</li>
+                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">
+                                    Annual functions with family participation</li>
+                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">
+                                    Educational lectures on various topics</li>
+                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">
+                                    Excursion trips to historical places</li>
+                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">
+                                    Foreign tours (e.g., Sri Lanka)</li>
+                                <li style="font-family: 'Reem Kufi Fun', sans-serif;color: white;text-align: left;">
+                                    Quarterly newsletter publication</li>
                             </ul>
                         </div>
                         <div></div>
@@ -100,92 +219,152 @@
             </div>
         </div>
         <div class="d-flex justify-content-center align-items-center" style="margin-top: 40px;">
-            <p style="margin-bottom: 0px;width: 80%;font-family: 'Reem Kufi Fun', sans-serif;">APCA is regularly publishing quarterly newsletters for the last 12 years, which include details of important events and activities, birthdays and marriage anniversaries, promotions, transfers, achievements and lists of meritorious students who are awarded silver medals and certificates on the occasion of the Agrasen Jayanti every year. Matrimonial ads given by APCA members are published free of cost.<br><br>APCA is having its own website and email id. Directory of APCA and Yuva-APCA members have been published in the past giving details of member, spouse and children. The same has been appreciated and found useful by all members.</p>
+            <p style="margin-bottom: 0px;width: 80%;font-family: 'Reem Kufi Fun', sans-serif;">APCA is regularly
+                publishing quarterly newsletters for the last 12 years, which include details of important events and
+                activities, birthdays and marriage anniversaries, promotions, transfers, achievements and lists of
+                meritorious students who are awarded silver medals and certificates on the occasion of the Agrasen
+                Jayanti every year. Matrimonial ads given by APCA members are published free of cost.<br><br>APCA is
+                having its own website and email id. Directory of APCA and Yuva-APCA members have been published in the
+                past giving details of member, spouse and children. The same has been appreciated and found useful by
+                all members.</p>
         </div>
         <div class="d-flex justify-content-center align-items-center">
             <div class="d-md-flex justify-content-between align-items-md-center" style="margin-top: 40px;width: 80%;">
-                <div style="background: #ae2929;padding: 40px 20px;border-style: none;border-radius: 10px;width: 100%;margin: 20px 0px;">
-                    <h3 style="color: #F6D76D;font-family: 'Reem Kufi Fun', sans-serif;font-weight: bold;text-align: center;">Medical Helpline</h3>
-                    <p style="color: white;font-family: 'Reem Kufi Fun', sans-serif;margin-bottom: 0px;">17 APCA members<br>providing medical<br>advice</p>
+                <div
+                    style="background: #ae2929;padding: 40px 20px;border-style: none;border-radius: 10px;width: 100%;margin: 20px 0px;">
+                    <h3
+                        style="color: #F6D76D;font-family: 'Reem Kufi Fun', sans-serif;font-weight: bold;text-align: center;">
+                        Medical Helpline</h3>
+                    <p style="color: white;font-family: 'Reem Kufi Fun', sans-serif;margin-bottom: 0px;">17 APCA
+                        members<br>providing medical<br>advice</p>
                 </div>
-                <div class="mx-md-4" style="background: #ae2929;padding: 40px 20px;border-style: none;border-radius: 10px;width: 100%;margin: 20px 0px;">
-                    <h3 style="color: #F6D76D;font-family: 'Reem Kufi Fun', sans-serif;font-weight: bold;text-align: center;">Legal Advice</h3>
-                    <p style="color: white;font-family: 'Reem Kufi Fun', sans-serif;margin-bottom: 0px;">5 APCA members<br>providing legal<br>assistance</p>
+                <div class="mx-md-4"
+                    style="background: #ae2929;padding: 40px 20px;border-style: none;border-radius: 10px;width: 100%;margin: 20px 0px;">
+                    <h3
+                        style="color: #F6D76D;font-family: 'Reem Kufi Fun', sans-serif;font-weight: bold;text-align: center;">
+                        Legal Advice</h3>
+                    <p style="color: white;font-family: 'Reem Kufi Fun', sans-serif;margin-bottom: 0px;">5 APCA
+                        members<br>providing legal<br>assistance</p>
                 </div>
-                <div style="background: #ae2929;padding: 40px 20px;border-style: none;border-radius: 10px;width: 100%;margin: 20px 0px;">
-                    <h3 style="color: #F6D76D;font-family: 'Reem Kufi Fun', sans-serif;font-weight: bold;text-align: center;">State Affiliation</h3>
-                    <p style="color: white;font-family: 'Reem Kufi Fun', sans-serif;margin-bottom: 0px;">Affiliated to Gujarat<br>Pradesh Agrawal<br>Maha Sabha</p>
+                <div
+                    style="background: #ae2929;padding: 40px 20px;border-style: none;border-radius: 10px;width: 100%;margin: 20px 0px;">
+                    <h3
+                        style="color: #F6D76D;font-family: 'Reem Kufi Fun', sans-serif;font-weight: bold;text-align: center;">
+                        State Affiliation</h3>
+                    <p style="color: white;font-family: 'Reem Kufi Fun', sans-serif;margin-bottom: 0px;">Affiliated to
+                        Gujarat<br>Pradesh Agrawal<br>Maha Sabha</p>
                 </div>
                 <div></div>
             </div>
         </div>
         <div class="d-flex justify-content-center align-items-center" style="margin-top: 40px;">
-            <p style="margin-bottom: 0px;width: 80%;font-family: 'Reem Kufi Fun', sans-serif;font-weight: bold;">According to APCA Constitution, elections are held every 2 years in the month of April to elect the Executive Committee through secret ballot.</p>
+            <p style="margin-bottom: 0px;width: 80%;font-family: 'Reem Kufi Fun', sans-serif;font-weight: bold;">
+                According to APCA Constitution, elections are held every 2 years in the month of April to elect the
+                Executive Committee through secret ballot.</p>
         </div>
     </div>
     <div class="scroll-container">
-        <div class="scroll-content" style="overflow-x: hidden;"><img class="img-fluid" src="assets/img/strips.png" style="aspect-ratio: 2047/280;height: 50px;border-radius: 0px;"><img class="img-fluid" src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid" src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid" src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid" src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid" src="assets/img/strips.png" style="aspect-ratio: 2047/280;height: 50px;border-radius: 0px;"><img class="img-fluid" src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid" src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid" src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid" src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid" src="assets/img/strips.png" style="aspect-ratio: 2047/280;height: 50px;border-radius: 0px;"><img class="img-fluid" src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid" src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid" src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid" src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"></div>
+        <div class="scroll-content" style="overflow-x: hidden;"><img class="img-fluid" src="assets/img/strips.png"
+                style="aspect-ratio: 2047/280;height: 50px;border-radius: 0px;"><img class="img-fluid"
+                src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
+                class="img-fluid" src="assets/img/strips.png"
+                style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid"
+                src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
+                class="img-fluid" src="assets/img/strips.png"
+                style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid"
+                src="assets/img/strips.png" style="aspect-ratio: 2047/280;height: 50px;border-radius: 0px;"><img
+                class="img-fluid" src="assets/img/strips.png"
+                style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid"
+                src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
+                class="img-fluid" src="assets/img/strips.png"
+                style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid"
+                src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
+                class="img-fluid" src="assets/img/strips.png"
+                style="aspect-ratio: 2047/280;height: 50px;border-radius: 0px;"><img class="img-fluid"
+                src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
+                class="img-fluid" src="assets/img/strips.png"
+                style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid"
+                src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
+                class="img-fluid" src="assets/img/strips.png"
+                style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"></div>
     </div>
-    <footer class="text-body bg-body position-relative d-flex justify-content-center align-items-center" style="background: #AE2929 !important;">
+    <footer class="text-body bg-body position-relative d-flex justify-content-center align-items-center"
+        style="background: #AE2929 !important;">
         <div class="position-relative py-4 py-lg-5" style="z-index: 20;width: 95%;">
             <div class="row justify-content-center justify-content-md-between">
-                <div class="col-sm-4 col-md-3 offset-0 text-center text-lg-start d-flex flex-column align-items-center order-first" style="width: fit-content;"><img src="assets/img/apca%20logo1.png" width="201" height="284"></div>
-                <div class="col-sm-4 col-md-3 offset-0 text-center text-lg-start d-flex flex-column align-items-center order-first" style="width: fit-content;">
+                <div class="col-sm-4 col-md-3 offset-0 text-center text-lg-start d-flex flex-column align-items-center order-first"
+                    style="width: fit-content;"><img src="assets/img/apca%20logo1.png" width="201" height="284"></div>
+                <div class="col-sm-4 col-md-3 offset-0 text-center text-lg-start d-flex flex-column align-items-center order-first"
+                    style="width: fit-content;">
                     <div>
-                        <h1 class="text-body" style="color: #F6D76D !important;font-family: 'Reem Kufi Fun', sans-serif;font-size: 18PX;text-align: left;font-weight: bold;">APCA</h1>
-                        <p style="color: white;font-family: Montserrat, sans-serif;text-align: left;font-size: 14px;">Agarwal Professional Cultural<br>Association<br>An initiative by Agarwal<br>Professionals...since 1992</p>
-                        <p style="text-align: left;"><a href="mailto:apca2000@hotmail.com"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" style="color: white;width: 20px;height: 20px;">
+                        <h1 class="text-body"
+                            style="color: #F6D76D !important;font-family: 'Reem Kufi Fun', sans-serif;font-size: 18PX;text-align: left;font-weight: bold;">
+                            APCA</h1>
+                        <p style="color: white;font-family: Montserrat, sans-serif;text-align: left;font-size: 14px;">
+                            Agarwal Professional Cultural<br>Association<br>An initiative by
+                            Agarwal<br>Professionals...since 1992</p>
+                        <p style="text-align: left;"><a href="mailto:apca2000@hotmail.com"><svg
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em"
+                                    fill="currentColor" style="color: white;width: 20px;height: 20px;">
                                     <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
-                                    <path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"></path>
+                                    <path
+                                        d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z">
+                                    </path>
                                 </svg></a></p>
                     </div>
                 </div>
                 <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column" style="width: fit-content;">
-                    <h1 class="text-body" style="color: #F6D76D !important;font-family: 'Reem Kufi Fun', sans-serif;font-size: 18px;text-align: left;font-weight: bold;">QUICK LINKS</h1>
+                    <h1 class="text-body"
+                        style="color: #F6D76D !important;font-family: 'Reem Kufi Fun', sans-serif;font-size: 18px;text-align: left;font-weight: bold;">
+                        QUICK LINKS</h1>
                     <ul class="list-unstyled" style="text-align: left;">
-                        <li><a class="text-decoration-none" href="/about-us.html" style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">About Us</a></li>
-                        <li><a class="text-decoration-none" href="/feedback.html" style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">Feedback/FAQs</a></li>
-                        <li><a class="text-decoration-none" href="/members-lounge.html" style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">Member’s Lounge</a></li>
-                        <li><a class="text-decoration-none" href="/job-opportunities.html" style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">Job opportunities</a></li>
-                        <li><a class="text-decoration-none" href="/matrimonial-services.html" style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">Matrimonial services</a></li>
-                        <li><a class="text-decoration-none" href="/links.html" style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">Useful Links</a></li>
+                        <li><a class="text-decoration-none" href="/apca/about-us.html"
+                                style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">About Us</a>
+                        </li>
+                        <li><a class="text-decoration-none" href="/apca/under-construction.html"
+                                style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">Feedback/FAQs</a>
+                        </li>
+                        <li><a class="text-decoration-none" href="/apca/under-construction.html"
+                                style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">Member’s
+                                Lounge</a></li>
+                        <li><a class="text-decoration-none" href="/apca/under-construction.html"
+                                style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">Job
+                                opportunities</a></li>
+                        <li><a class="text-decoration-none" href="/apca/under-construction.html"
+                                style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">Matrimonial
+                                services</a></li>
+                        <li><a class="text-decoration-none" href="/apca/links.html"
+                                style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">Useful
+                                Links</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column" style="width: fit-content;"><iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.5222778907255!2d72.51214131108068!3d23.043250215468934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b4de0d0971b%3A0x98021b0cb467ec8b!2sGoyal%20Palace!5e1!3m2!1sen!2sin!4v1757453590548!5m2!1sen!2sin"
-    width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"></iframe></div>
                 <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column" style="width: fit-content;">
-                    <h1 class="text-body" style="color: #F6D76D !important;font-family: 'Reem Kufi Fun', sans-serif;font-size: 18PX;text-align: left;font-weight: bold;">CONTACT US</h1>
-                    <p style="font-size: 14px;color: white;font-family: Montserrat, sans-serif;text-align: left;">83, Goyal Palace,<br>Sarkhej – Gandhinagar Highway,<br>Bodakdev, Ahmedabad – 380054,<br>Gujarat, India</p>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.5222778907255!2d72.51214131108068!3d23.043250215468934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b4de0d0971b%3A0x98021b0cb467ec8b!2sGoyal%20Palace!5e1!3m2!1sen!2sin!4v1757453590548!5m2!1sen!2sin"
+                        width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column" style="width: fit-content;">
+                    <h1 class="text-body"
+                        style="color: #F6D76D !important;font-family: 'Reem Kufi Fun', sans-serif;font-size: 18PX;text-align: left;font-weight: bold;">
+                        CONTACT US</h1>
+                    <p style="font-size: 14px;color: white;font-family: Montserrat, sans-serif;text-align: left;">83,
+                        Goyal Palace,<br>Sarkhej - Gandhinagar Highway,<br>Bodakdev, Ahmedabad - 380054,<br>Gujarat,
+                        India</p>
                 </div>
             </div>
             <hr style="color: #F6D76D;border-width: 3px;border-color: #F6D76D;opacity: 1;">
             <div class="text-center d-flex justify-content-center align-items-center pt-3">
-                <p class="mb-0" style="color: #F6D76D;font-weight: bold;font-size: 14px;font-family: Montserrat, sans-serif;">©2025&nbsp;Agrawal Professionals Cultural Association. All Rights Reserved.</p>
+                <p class="mb-0"
+                    style="color: #F6D76D;font-weight: bold;font-size: 14px;font-family: Montserrat, sans-serif;">
+                    ©2025&nbsp;Agrawal Professionals</p>
             </div>
-        </div><img class="position-absolute" src="assets/img/mandala-removebg-preview%202.png" style="top: 0;left: 0;opacity: 0.33;z-index: 10;" width="119" height="116"><img class="position-absolute" src="assets/img/right%20top%20footer.png" style="top: 0;right: 0;opacity: 0.33;z-index: 10;" width="119" height="116"><img class="img-fluid position-absolute" width="1275" height="512" src="assets/img/footer%20lower.png" style="bottom: 0;left: 30%;width: 40vw;z-index: 10;opacity: 0.33;">
-    </footer><!-- <style>
-    .our-gallery {
-        width: 400px;
-        height: 200px;
-        background-image: url('assets/img/clipboard-image-10.png');
-        background-repeat: repeat-x;
-        background-size: cover;
-        animation: scrollBg 10s linear infinite;
-    }
-
-    @keyframes scrollBg {
-        0% {
-            background-position: 0 0;
-        }
-
-        100% {
-            background-position: -400px 0;
-        }
-    }
-</style>
-<span class="our-gallery"></span> -->
+        </div><img class="position-absolute" src="assets/img/mandala-removebg-preview%202.png"
+            style="top: 0;left: 0;opacity: 0.33;z-index: 10;" width="119" height="116"><img class="position-absolute"
+            src="assets/img/right%20top%20footer.png" style="top: 0;right: 0;opacity: 0.33;z-index: 10;" width="119"
+            height="116"><img class="img-fluid position-absolute" width="1275" height="512"
+            src="assets/img/footer%20lower.png" style="bottom: 0;left: 30%;width: 40vw;z-index: 10;opacity: 0.33;">
+    </footer>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
