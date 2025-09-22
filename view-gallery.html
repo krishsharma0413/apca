@@ -238,7 +238,7 @@ An initiative by Agarwal Professionals, since 1992.">
         // check url parameter for ?event=xyz
         const urlParams = new URLSearchParams(window.location.search);
         const eventParam = urlParams.get('event');
-        const directory = { '2010-agrasen-jayanti': 21, '2011-agrasen-jayanti': 27, '2011-sports-meet': 49, '2012-agrasen-jayanti': 115, '2012-sports-meet': 37, '2013-annual-general-meeting': 5, '2013-maharaja-agrasen-jayanti': 80, '2013-outdoor-visit': 6, '2013-picnic': 63, '2013-sports-meet': 116, '2014-sports-meet': 46, 'agroha-dham-tour': 15, 'lecture-at-ama': 1 }
+        const directory = { '2010-agrasen-jayanti': 21, '2011-agrasen-jayanti': 27, '2011-sports-meet': 44, '2012-agrasen-jayanti': 19, '2012-sports-meet': 31, '2013-annual-general-meeting': 5, '2013-maharaja-agrasen-jayanti': 72, '2013-outdoor-visit': 6, '2013-picnic': 55, '2013-sports-meet': 27, '2014-sports-meet': 38, 'agroha-dham-tour': 12, 'lecture-at-ama': 5 }
         if (eventParam && directory[eventParam]) {
             document.querySelector('#event-name').innerText = eventParam.replace(/-/g, ' ').toUpperCase();
             let imgCount = directory[eventParam];
