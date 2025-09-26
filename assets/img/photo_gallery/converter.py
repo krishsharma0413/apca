@@ -24,7 +24,7 @@ def convert_and_rename_images(folder_path):
             print(f"Error processing {jpg_file}: {e}")
     return total
 
-base_directory = Path("D:/projects/SDC/apcaBS/assets/img/photo_gallery")
+base_directory = Path("D:/projects/SDC/BS/assets/img/photo_gallery")
 folder_max_dict = {}
 
 for subfolder in base_directory.iterdir():
