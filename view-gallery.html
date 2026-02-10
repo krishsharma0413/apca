@@ -10,108 +10,76 @@
     <meta name="description" content="APCA was founded in 1992 by a few Agrawal Scientists and officers of Indian Space Research Organisation at Ahmedabad. It has grown tremendously since then and has encompassed Agrawal Professionals from different fields outside ISRO.
 
 An initiative by Agarwal Professionals, since 1992.">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/almalikregular.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amita&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Eagle+Lake&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Reem+Kufi+Fun&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;display=swap">
-    <link rel="stylesheet" href="assets/css/Taiganja%20Type.css">
-    <link rel="stylesheet" href="assets/css/windhaviregular.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/Black-Navbar.css">
-    <link rel="stylesheet" href="assets/css/card-3-column-animation-shadows-images.css">
-    <link rel="stylesheet" href="assets/css/Footer-Multi-Column-icons.css">
-    <link rel="stylesheet" href="assets/css/News-Cards.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/almalikregular.css">
+    <link rel="stylesheet" href="/assets/css/Amita.css">
+    <link rel="stylesheet" href="/assets/css/Eagle%20Lake.css">
+    <link rel="stylesheet" href="/assets/css/Montserrat.css">
+    <link rel="stylesheet" href="/assets/css/Reem%20Kufi%20Fun.css">
+    <link rel="stylesheet" href="/assets/css/Roboto.css">
+    <link rel="stylesheet" href="/assets/css/Taiganja%20Type.css">
+    <link rel="stylesheet" href="/assets/css/windhaviregular.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="/assets/css/Black-Navbar.css">
+    <link rel="stylesheet" href="/assets/css/card-3-column-animation-shadows-images.css">
+    <link rel="stylesheet" href="/assets/css/Footer-Multi-Column-icons.css">
+    <link rel="stylesheet" href="/assets/css/News-Cards.css">
 </head>
 
 <body style="background: #edeff4;">
-    <div class="d-flex justify-content-end align-items-center" style="padding: 5px;background: rgba(230,230,230,0.38);">
+    <div class="d-flex justify-content-end align-items-center" style="padding: 5px;background: white;">
         <p style="margin-bottom: 0px;margin-right: 10px;font-family: Montserrat, sans-serif;"><svg
                 xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none"
                 style="font-size: 21px;">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M3.00977 5.83789C3.00977 5.28561 3.45748 4.83789 4.00977 4.83789H20C20.5523 4.83789 21 5.28561 21 5.83789V17.1621C21 18.2667 20.1046 19.1621 19 19.1621H5C3.89543 19.1621 3 18.2667 3 17.1621V6.16211C3 6.11449 3.00333 6.06765 3.00977 6.0218V5.83789ZM5 8.06165V17.1621H19V8.06199L14.1215 12.9405C12.9499 14.1121 11.0504 14.1121 9.87885 12.9405L5 8.06165ZM6.57232 6.80554H17.428L12.7073 11.5263C12.3168 11.9168 11.6836 11.9168 11.2931 11.5263L6.57232 6.80554Z"
                     fill="currentColor"></path>
-            </svg>&nbsp;apca2000@hotmail.com</p>
-        <p style="margin-bottom: 0px;margin-right: 10px;">
-            <select id="page-lang-change"
+            </svg>&nbsp;<a href="mailto:apca2000@hotmail.com"
+                style="text-decoration: none;color: rgb(0,0,0);">apca2000@hotmail.com</a></p>
+        <p style="margin-bottom: 0px;margin-right: 10px;"><select id="page-lang-change"
                 style="border-style: none;padding: 5px 10px;background: rgb(244,244,244);font-family: Montserrat, sans-serif;">
                 <optgroup label="Select Language">
-                    <option value="en">English</option>
-                    <option value="hi">Hindi</option>
-                    <option value="gu">Gujarati</option>
+                    <option value="english">English</option>
+                    <option value="hindi">Hindi</option>
+                    <option value="gujrati">Gujrati</option>
                 </optgroup>
-            </select>
-        </p>
-        <script>
-            // if the page-lang-change changes then change the page URL to the value of it.
-            document.getElementById('page-lang-change').addEventListener('change', function () {
-                var selectedValue = this.value;
-
-                // Get the current page path (everything after the domain)
-                var currentPath = window.location.pathname;
-
-                // Base URLs
-                const enBase = "https://krishsharma.in";
-                const translateBase = "https://krishsharma-in.translate.goog";
-
-                var targetUrl = '';
-
-                if (selectedValue === 'en') {
-                    // Switch to English - construct the original URL with current path
-                    targetUrl = enBase + currentPath;
-                } else if (selectedValue === 'hi') {
-                    // Switch to Hindi translation
-                    targetUrl = translateBase + currentPath + "?_x_tr_sl=auto&_x_tr_tl=hi&_x_tr_hl=en-US&_x_tr_pto=wapp";
-                } else if (selectedValue === 'gu') {
-                    // Switch to Gujarati translation
-                    targetUrl = translateBase + currentPath + "?_x_tr_sl=auto&_x_tr_tl=gu&_x_tr_hl=en-US&_x_tr_pto=wapp";
-                }
-
-                if (targetUrl) {
-                    window.location.href = targetUrl;
-                }
-            });
-        </script>
+            </select></p>
     </div>
     <nav class="navbar navbar-expand-md sticky-top bg-body position-sticky" style="background: #AE2929 !important;">
-        <div class="container-fluid"><a class="navbar-brand" href="/apca"
+        <div class="container-fluid"><a class="navbar-brand" href="/"
                 style="color: rgb(255,255,255);font-family: Montserrat, sans-serif;font-weight: bold;"><img
-                    src="assets/img/typographic%20logo%20apca.png" width="150" height="60"></a><button
-                data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"
+                    src="/assets/img/typographic%20logo%20apca.png" width="150" height="60"></a><button
+                data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"
                 style="font-family: Montserrat, sans-serif;color: rgb(255,255,255);border-style: none;"><i
                     class="fas fa-bars" style="font-size: 28px;"></i></button>
-            <div class="collapse navbar-collapse d-md-flex justify-content-md-end" id="navcol-1"
+            <div class="collapse navbar-collapse d-md-flex justify-content-md-end" id="navcol-2"
                 style="font-family: Montserrat, sans-serif;">
                 <ul class="navbar-nav" style="font-family: Montserrat, sans-serif;">
                     <li class="nav-item dropdown" style="color: rgb(255,255,255);font-family: Montserrat, sans-serif;">
                         <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"
                             style="color: rgb(255,255,255);font-size: 14px;font-family: Montserrat, sans-serif;">ABOUT</a>
                         <div class="dropdown-menu" style="font-family: Montserrat, sans-serif;"><a class="dropdown-item"
-                                href="/apca/about-us.html" style="font-family: Montserrat, sans-serif;">About Us</a><a
-                                class="dropdown-item" href="/apca/links.html"
+                                href="/about-us.html" style="font-family: Montserrat, sans-serif;">About Us</a><a
+                                class="dropdown-item" href="/links.html"
                                 style="font-family: Montserrat, sans-serif;">Links</a></div>
                     </li>
                     <li class="nav-item dropdown" style="color: rgb(255,255,255);font-family: Montserrat, sans-serif;">
                         <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"
                             style="color: rgb(255,255,255);font-size: 14px;font-family: Montserrat, sans-serif;">COMMUNITY</a>
                         <div class="dropdown-menu" style="font-family: Montserrat, sans-serif;"><a class="dropdown-item"
-                                href="/apca/under-construction.html"
-                                style="font-family: Montserrat, sans-serif;">Member's Lounge</a><a class="dropdown-item"
-                                href="/apca/membership-registration.html"
+                                href="/under-construction.html" style="font-family: Montserrat, sans-serif;">Member's
+                                Lounge</a><a class="dropdown-item" href="/membership-registration.html"
                                 style="font-family: Montserrat, sans-serif;">Registration</a><a class="dropdown-item"
-                                href="/apca/under-construction.html" style="font-family: Montserrat, sans-serif;">Guest
-                                Book</a><a class="dropdown-item" href="/apca/under-construction.html"
-                                style="font-family: Montserrat, sans-serif;">FAQs</a></div>
+                                href="/under-construction.html" style="font-family: Montserrat, sans-serif;">Guest
+                                Book</a><a class="dropdown-item" href="/feedback.html"
+                                style="font-family: Montserrat, sans-serif;">Feedback</a></div>
                     </li>
                     <li class="nav-item" style="font-family: Montserrat, sans-serif;"><a class="nav-link"
-                            href="/apca/newsletter.html"
+                            href="/newsletter.html"
                             style="color: rgb(255,255,255);font-family: Montserrat, sans-serif;font-size: 14px;">NEWS</a>
                     </li>
                     <li class="nav-item" style="font-family: Montserrat, sans-serif;font-size: 14px;"><a
-                            class="nav-link" href="/apca/contact-us.html"
+                            class="nav-link" href="/contact-us.html"
                             style="color: rgb(255,255,255);font-family: Montserrat, sans-serif;font-size: 14px;">CONTACT</a>
                     </li>
                 </ul>
@@ -121,47 +89,68 @@ An initiative by Agarwal Professionals, since 1992.">
     <section class="position-relative" style="padding: 40px 0px;background: white;text-align: center;">
         <h1
             style="text-align: center;color: #AE2929;font-family: 'Reem Kufi Fun', sans-serif;font-size: 40px;font-weight: bold;">
-            Our Gallery</h1><img class="img-fluid line-img" width="860" height="84" src="assets/img/line-1.png"
+            Our Gallery</h1><img class="img-fluid line-img" width="860" height="84" src="/assets/img/line-1.png"
             style="width: 35%;margin-bottom: 20px;">
-        <h5 id="event-name"
+        <h5
             style="text-align: center;font-family: Montserrat, sans-serif;font-weight: bold;margin-bottom: 0px;padding: 10px 0px;background: #AE2929;color: #F6D76D;">
-        </h5>
+            Event Name</h5>
     </section>
     <div style="padding: 20px;background: white;text-align: center;"><img class="img-fluid" style="margin: 10px;"></div>
     <div style="padding: 20px 0px;text-align: center;background: white;"><button class="btn btn-primary" type="button"
             style="font-family: 'Reem Kufi Fun', sans-serif;background: rgb(174,41,41);color: #F6D76D;border: 2px solid #F6D76D;border-radius: 13px;"
-            onclick="window.location.href = '/apca/gallery.html';">Back to Gallery</button></div>
+            onclick="window.location.href = '/gallery.html';">Back to Gallery</button></div>
     <div class="scroll-container">
-        <div class="scroll-content" style="overflow-x: hidden;"><img class="img-fluid" src="assets/img/strips.png"
+        <div class="scroll-content" style="overflow-x: hidden;"><img class="img-fluid" src="/assets/img/strips.png"
                 style="aspect-ratio: 2047/280;height: 50px;border-radius: 0px;"><img class="img-fluid"
-                src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
-                class="img-fluid" src="assets/img/strips.png"
+                src="/assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
+                class="img-fluid" src="/assets/img/strips.png"
                 style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid"
-                src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
-                class="img-fluid" src="assets/img/strips.png"
+                src="/assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
+                class="img-fluid" src="/assets/img/strips.png"
                 style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid"
-                src="assets/img/strips.png" style="aspect-ratio: 2047/280;height: 50px;border-radius: 0px;"><img
-                class="img-fluid" src="assets/img/strips.png"
+                src="/assets/img/strips.png" style="aspect-ratio: 2047/280;height: 50px;border-radius: 0px;"><img
+                class="img-fluid" src="/assets/img/strips.png"
                 style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid"
-                src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
-                class="img-fluid" src="assets/img/strips.png"
+                src="/assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
+                class="img-fluid" src="/assets/img/strips.png"
                 style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid"
-                src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
-                class="img-fluid" src="assets/img/strips.png"
+                src="/assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
+                class="img-fluid" src="/assets/img/strips.png"
                 style="aspect-ratio: 2047/280;height: 50px;border-radius: 0px;"><img class="img-fluid"
-                src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
-                class="img-fluid" src="assets/img/strips.png"
+                src="/assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
+                class="img-fluid" src="/assets/img/strips.png"
                 style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img class="img-fluid"
-                src="assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
-                class="img-fluid" src="assets/img/strips.png"
+                src="/assets/img/strips.png" style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"><img
+                class="img-fluid" src="/assets/img/strips.png"
                 style="height: 50px;aspect-ratio: 2047/280;border-radius: 0px;"></div>
-    </div>
+    </div><!-- <style>
+    .our-gallery {
+        width: 400px;
+        height: 200px;
+        background-image: url('/assets/img/clipboard-image-10.png');
+        background-repeat: repeat-x;
+        background-size: cover;
+        animation: scrollBg 10s linear infinite;
+    }
+
+    @keyframes scrollBg {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: -400px 0;
+        }
+    }
+</style>
+<span class="our-gallery"></span> -->
     <footer class="text-body bg-body position-relative d-flex justify-content-center align-items-center"
         style="background: #AE2929 !important;">
         <div class="position-relative py-4 py-lg-5" style="z-index: 20;width: 95%;">
             <div class="row justify-content-center justify-content-md-between">
                 <div class="col-sm-4 col-md-3 offset-0 text-center text-lg-start d-flex flex-column align-items-center order-first"
-                    style="width: fit-content;"><img src="assets/img/apca%20logo1.png" width="201" height="284"></div>
+                    style="width: fit-content;"><img src="/assets/img/apca%20logo%20bg-removed.png" width="201"
+                        height="284"></div>
                 <div class="col-sm-4 col-md-3 offset-0 text-center text-lg-start d-flex flex-column align-items-center order-first"
                     style="width: fit-content;">
                     <div>
@@ -186,22 +175,22 @@ An initiative by Agarwal Professionals, since 1992.">
                         style="color: #F6D76D !important;font-family: 'Reem Kufi Fun', sans-serif;font-size: 18px;text-align: left;font-weight: bold;">
                         QUICK LINKS</h1>
                     <ul class="list-unstyled" style="text-align: left;">
-                        <li><a class="text-decoration-none" href="/apca/about-us.html"
+                        <li><a class="text-decoration-none" href="/about-us.html"
                                 style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">About Us</a>
                         </li>
-                        <li><a class="text-decoration-none" href="/apca/under-construction.html"
-                                style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">Feedback/FAQs</a>
+                        <li><a class="text-decoration-none" href="/feedback.html"
+                                style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">Feedback</a>
                         </li>
-                        <li><a class="text-decoration-none" href="/apca/under-construction.html"
+                        <li><a class="text-decoration-none" href="/under-construction.html"
                                 style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">Member’s
                                 Lounge</a></li>
-                        <li><a class="text-decoration-none" href="/apca/under-construction.html"
+                        <li><a class="text-decoration-none" href="/job.html"
                                 style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">Job
                                 opportunities</a></li>
-                        <li><a class="text-decoration-none" href="/apca/under-construction.html"
+                        <li><a class="text-decoration-none" href="/matrimonial-services.html"
                                 style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">Matrimonial
                                 services</a></li>
-                        <li><a class="text-decoration-none" href="/apca/links.html"
+                        <li><a class="text-decoration-none" href="/links.html"
                                 style="color: white;font-family: Montserrat, sans-serif;font-size: 14px;">Useful
                                 Links</a></li>
                     </ul>
@@ -210,14 +199,13 @@ An initiative by Agarwal Professionals, since 1992.">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.5222778907255!2d72.51214131108068!3d23.043250215468934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b4de0d0971b%3A0x98021b0cb467ec8b!2sGoyal%20Palace!5e1!3m2!1sen!2sin!4v1757453590548!5m2!1sen!2sin"
                         width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+                        referrerpolicy="no-referrer-when-downgrade"></iframe></div>
                 <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column" style="width: fit-content;">
                     <h1 class="text-body"
                         style="color: #F6D76D !important;font-family: 'Reem Kufi Fun', sans-serif;font-size: 18PX;text-align: left;font-weight: bold;">
                         CONTACT US</h1>
                     <p style="font-size: 14px;color: white;font-family: Montserrat, sans-serif;text-align: left;">83,
-                        Goyal Palace,<br>Sarkhej - Gandhinagar Highway,<br>Bodakdev,Ahmedabad - 380054,<br>Gujarat,
+                        Goyal Palace,<br>Sarkhej – Gandhinagar Highway,<br>Bodakdev,Ahmedabad – 380054,<br>Gujarat,
                         India</p>
                 </div>
             </div>
@@ -225,44 +213,18 @@ An initiative by Agarwal Professionals, since 1992.">
             <div class="text-center d-flex justify-content-center align-items-center pt-3">
                 <p class="mb-0"
                     style="color: #F6D76D;font-weight: bold;font-size: 14px;font-family: Montserrat, sans-serif;">
-                    ©2025&nbsp;Agrawal Professionals</p>
+                    ©2026&nbsp;Software Development Centre MUJ</p>
             </div>
-        </div><img class="position-absolute" src="assets/img/mandala-removebg-preview%202.png"
+        </div><img class="position-absolute" src="/assets/img/mandala-removebg-preview%202.png"
             style="top: 0;left: 0;opacity: 0.33;z-index: 10;" width="119" height="116"><img class="position-absolute"
-            src="assets/img/right%20top%20footer.png" style="top: 0;right: 0;opacity: 0.33;z-index: 10;" width="119"
+            src="/assets/img/right%20top%20footer.png" style="top: 0;right: 0;opacity: 0.33;z-index: 10;" width="119"
             height="116"><img class="img-fluid position-absolute" width="1275" height="512"
-            src="assets/img/footer%20lower.png" style="bottom: 0;left: 30%;width: 40vw;z-index: 10;opacity: 0.33;">
-        <div
-            style="position: absolute;bottom: 10px;right: 10px;z-index: 300; font-family: 'Reem Kufi Fun', sans-serif; color:white;">
-            <img src="assets/img/sdc-logo-white.png" style="border-radius: 0px;" width="65">
-
-        </div>
+            src="/assets/img/footer%20lower.png" style="bottom: 0;left: 30%;width: 40vw;z-index: 10;opacity: 0.33;">
+        <div style="position: absolute;bottom: 10px;right: 10px;z-index: 300;"><img class="img-fluid" width="1080"
+                height="512" src="/assets/img/sdc-logo-white.png" style="width: 65px;"></div>
     </footer>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script>
-        // check url parameter for ?event=xyz
-        const urlParams = new URLSearchParams(window.location.search);
-        const eventParam = urlParams.get('event');
-        const directory = { '2010-agrasen-jayanti': 21, '2011-agrasen-jayanti': 27, '2011-sports-meet': 44, '2012-agrasen-jayanti': 19, '2012-sports-meet': 31, '2013-annual-general-meeting': 5, '2013-maharaja-agrasen-jayanti': 72, '2013-outdoor-visit': 6, '2013-picnic': 55, '2013-sports-meet': 27, '2014-sports-meet': 38, 'agroha-dham-tour': 12, 'lecture-at-ama': 5 }
-        if (eventParam && directory[eventParam]) {
-            document.querySelector('#event-name').innerText = eventParam.replace(/-/g, ' ').toUpperCase();
-            let imgCount = directory[eventParam];
-            let imgContainer = document.querySelector('div[style*="padding: 20px;background: white;text-align: center;"]');
-            for (let i = 1; i <= imgCount; i++) {
-                let img = document.createElement('img');
-                img.src = `/apca/assets/img/photo_gallery/${eventParam}/${i}.jpg`;
-                img.style = 'margin: 10px;';
-                imgContainer.appendChild(img);
-            }
-        } else {
-            document.querySelector('#event-name').innerText = "Event Not Found";
-            let imgContainer = document.querySelector('div[style*="padding: 20px;background: white;text-align: center;"]');
-            let msg = document.createElement('p');
-            msg.innerText = "No images available for this event.";
-            msg.style = "font-family: Montserrat, sans-serif; font-size: 16px; color: #AE2929;";
-            imgContainer.appendChild(msg);
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/translator.js"></script>
 </body>
 
 </html>

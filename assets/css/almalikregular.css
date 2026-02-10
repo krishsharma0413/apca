@@ -1,7 +1,7 @@
 @font-face {
 	font-family: 'almalikregular';
-	src: url(../../assets/fonts/almalikregular-dfd6ee4c8a3b97ae113b39f56755b93d.woff2) format('woff2'),
-	url(../../assets/fonts/almalikregular-9555f69790ecc4d48e0da7317e47b7c6.woff) format('woff');
+	src: url(/assets/fonts/almalikregular-dfd6ee4c8a3b97ae113b39f56755b93d.woff2) format('woff2'),
+	url(/assets/fonts/almalikregular-9555f69790ecc4d48e0da7317e47b7c6.woff) format('woff');
 	font-weight: normal;
 	font-style: normal;
 	font-display: auto;

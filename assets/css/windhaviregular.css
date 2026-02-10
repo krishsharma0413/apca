@@ -1,7 +1,7 @@
 @font-face {
 	font-family: 'windhaviregular';
-	src: url(../../assets/fonts/windhaviregular-d62d42bf6068409d7afa73bb5ce2da90.woff2) format('woff2'),
-	url(../../assets/fonts/windhaviregular-2db025703f1d34921412d1c6f7007de0.woff) format('woff');
+	src: url(/assets/fonts/windhaviregular-d62d42bf6068409d7afa73bb5ce2da90.woff2) format('woff2'),
+	url(/assets/fonts/windhaviregular-2db025703f1d34921412d1c6f7007de0.woff) format('woff');
 	font-weight: normal;
 	font-style: normal;
 	font-display: auto;
